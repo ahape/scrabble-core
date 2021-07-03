@@ -16,6 +16,11 @@ export function createBagFromActions(actions: string[]): Bag {
                 bag.remove(letters);
                 break;
             case ActionType.Swap:
+                // A swap command looks like: "SWAP ABC DEF".
+                // "SWAP" is the action
+                // "ABC DEF" is the command part
+                // "ABC" are the letters being exchanged
+                // "DEF" are the letters being drawn
                 const [sExchanged, sDrawn] = commandPart.split(" ");
                 const exchanged = sExchanged.split("").map(parseLetter);
                 const drawn = sDrawn.split("").map(parseLetter);

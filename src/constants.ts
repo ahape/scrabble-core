@@ -1,3 +1,4 @@
+import * as _ from "underscore";
 import { Letter } from "./enums/letter";
 import { Multiplier } from "./enums/multiplier";
 import { MultiplierType } from "./enums/multipliertype";
@@ -41,6 +42,35 @@ export const emptyBoard = `
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4
 `;
+export const startingBagLetters = _.flatten([
+    _.times(2, () => Letter.BLANK),
+    _.times(9, () => Letter.A),
+    _.times(2, () => Letter.B),
+    _.times(2, () => Letter.C),
+    _.times(4, () => Letter.D),
+    _.times(12, () => Letter.E),
+    _.times(2, () => Letter.F),
+    _.times(3, () => Letter.G),
+    _.times(2, () => Letter.H),
+    _.times(9, () => Letter.I),
+    _.times(1, () => Letter.J),
+    _.times(1, () => Letter.K),
+    _.times(4, () => Letter.L),
+    _.times(2, () => Letter.M),
+    _.times(6, () => Letter.N),
+    _.times(8, () => Letter.O),
+    _.times(2, () => Letter.P),
+    _.times(1, () => Letter.Q),
+    _.times(6, () => Letter.R),
+    _.times(4, () => Letter.S),
+    _.times(6, () => Letter.T),
+    _.times(4, () => Letter.U),
+    _.times(2, () => Letter.V),
+    _.times(2, () => Letter.W),
+    _.times(1, () => Letter.X),
+    _.times(2, () => Letter.Y),
+    _.times(1, () => Letter.Z),
+]);
 
 export const letterValueMap: { [key in Letter]: number } = {
     [Letter.UNSET]: 0,
