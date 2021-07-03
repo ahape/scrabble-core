@@ -6,7 +6,7 @@
     "author": "<ahape@brightmetrics.com>",
     "license": "MIT",
     "scripts": {
-        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",
+        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/*.ts'",
         "build": "tsc -p ./"
     },
     "dependencies": {

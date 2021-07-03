@@ -1,16 +1,21 @@
 import * as _ from "underscore";
 import { ISquare } from "../interfaces/isquare";
 import { BOARD_X_LENGTH, BOARD_Y_LENGTH, coordinateChars } from "../constants";
+import { parseSquareCoordinates } from "./parsesquarecoordinates";
 
-export function createCommandFromMove(
-    move: ISquare[],
-    board: ISquare[][]
-): string {
-    // move.sort((a, b) => a.id.localeCompare(b.id));
+/**
+ * This function is for a UI implementation to create a play command.
+ * It is expected that the UI context would only have knowledge of the letters
+ * being played, and the letters on the board.
+ * From that, we have to determine what the official "move" is.
+ */
+export function createPlayCommand(move: ISquare[], board: ISquare[][]): string {
+    // First check that all of the squares from the move are in the same row or col
+    const sameCol =
+        _.unique(move.map((sq) => parseSquareCoordinates(sq)[0])).length == 1;
+    const sameRow =
+        _.unique(move.map((sq) => parseSquareCoordinates(sq)[1])).length == 1;
 
-    // First check that all of the squares from the move are in the same row/col
-    const sameRow = _.unique(move.map((sq) => sq.id.substr(1))).length == 1;
-    const sameCol = _.unique(move.map((sq) => sq.id.charAt(0))).length == 1;
     if (!sameRow && !sameCol)
         throw new Error(
             "Move letters weren't placed on the same row or column"
@@ -23,8 +28,8 @@ export function createCommandFromMove(
     let startingCoord = 0;
 
     if (sameRow) {
-        const y = +move[0].id.substr(1) - 1;
-        const sorted = _.sortBy(move, (sq) => sq.id.charAt(0));
+        const y = parseSquareCoordinates(move[0])[1];
+        const sorted = _.sortBy(move, (sq) => parseSquareCoordinates(sq)[1]);
         const first = sorted[0];
         const last = _.last(sorted)!;
         for (let x = 0; x < BOARD_X_LENGTH; x++) {
@@ -53,14 +58,14 @@ export function createCommandFromMove(
                 started = false;
             }
         }
-        // Should only trigger if word ends at edge of board.
+        // Should only be true if word ends at edge of board.
         if (passedFirst && passedLast)
             return `${word} ${
                 coordinateChars.charAt(startingCoord) + (y + 1)
             } H`;
     } else {
-        const x = coordinateChars.indexOf(move[0].id.charAt(0));
-        const sorted = _.sortBy(move, (sq) => +sq.id.substr(1));
+        const x = parseSquareCoordinates(move[0])[0];
+        const sorted = _.sortBy(move, (sq) => parseSquareCoordinates(sq)[0]);
         const first = sorted[0];
         const last = _.last(sorted)!;
         for (let y = 0; y < BOARD_Y_LENGTH; y++) {
@@ -89,7 +94,7 @@ export function createCommandFromMove(
                 started = false;
             }
         }
-        // Should only trigger if word ends at edge of board.
+        // Should only be true if word ends at edge of board.
         if (passedFirst && passedLast)
             return `${word} ${
                 coordinateChars.charAt(x) + (startingCoord + 1)
