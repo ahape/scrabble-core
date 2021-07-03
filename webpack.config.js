@@ -17,7 +17,7 @@ module.exports = {
         extensions: [".ts"],
     },
     output: {
-        filename: "bundle.js",
+        filename: "scrabble-core.js",
         path: path.resolve(__dirname, "build"),
     },
 };
