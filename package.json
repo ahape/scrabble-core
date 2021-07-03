@@ -7,6 +7,7 @@
     "license": "MIT",
     "scripts": {
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/*.ts'",
+        "cli": "clear && env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ts-node cli/index.ts",
         "build": "tsc -p ./",
         "bundle": "npx webpack"
     },
