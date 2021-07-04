@@ -6,8 +6,8 @@ module.exports = {
     mode: "development",
     // NOTE: This is specific to the 'scrabble' app
     externals: {
-        _: "../lib/underscore.js",
-        ko: "../lib/knockout.js",
+        knockout: { amd: "knockout" },
+        underscore: { amd: "underscore" },
     },
     module: {
         rules: [
@@ -30,7 +30,7 @@ module.exports = {
         path: path.resolve(__dirname, "build"),
         library: {
             name: "scrabblecore",
-            type: "umd",
+            type: "amd",
         },
     },
 };
