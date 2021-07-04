@@ -27,7 +27,7 @@ module.exports = {
     },
     output: {
         filename: "scrabblecore.js",
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "dist"),
         library: {
             name: "scrabblecore",
             type: "amd",
