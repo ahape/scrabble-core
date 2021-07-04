@@ -297,6 +297,10 @@ declare module "functions/createplaycommand" {
      */
     export function createPlayCommand(move: ISquare[], board: ISquare[][]): string;
 }
+declare module "functions/createboardfromstatus" {
+    import { IGameStatus } from "interfaces/igamestatus";
+    export function createBoardFromStatus(status: IGameStatus): import("scrabblecore").ISquare[][];
+}
 declare module "scrabblecore" {
     export * as constants from "constants";
     export { Bag } from "classes/bag";
@@ -326,6 +330,7 @@ declare module "scrabblecore" {
     export { playCommandHasLettersFromRack } from "functions/playcommandhaslettersfromrack";
     export { playMove } from "functions/playmove";
     export { printBoard } from "functions/printboard";
+    export { createBoardFromStatus } from "functions/createboardfromstatus";
     export { IGameState } from "interfaces/igamestate";
     export { IGameStatus } from "interfaces/igamestatus";
     export { IMove } from "interfaces/imove";

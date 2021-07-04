@@ -29,6 +29,7 @@ export { parseSquareCoordinates } from "./functions/parsesquarecoordinates";
 export { playCommandHasLettersFromRack } from "./functions/playcommandhaslettersfromrack";
 export { playMove } from "./functions/playmove";
 export { printBoard } from "./functions/printboard";
+export { createBoardFromStatus } from "./functions/createboardfromstatus";
 // Interfaces
 export { IGameState } from "./interfaces/igamestate";
 export { IGameStatus } from "./interfaces/igamestatus";
