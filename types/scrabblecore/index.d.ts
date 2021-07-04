@@ -297,7 +297,7 @@ declare module "functions/createplaycommand" {
      */
     export function createPlayCommand(move: ISquare[], board: ISquare[][]): string;
 }
-declare module "index" {
+declare module "scrabblecore" {
     export * as constants from "constants";
     export { Bag } from "classes/bag";
     export { Game } from "classes/game";
