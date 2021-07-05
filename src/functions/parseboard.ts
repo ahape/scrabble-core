@@ -13,11 +13,11 @@ const lowerCaseRx = /[a-z]/;
 
 export function parseBoard(board: string): ISquare[][] {
     const captures: string[] = [];
-    const rx = /\|([A-Za-z ])/g;
+    const rx = /\|([A-Za-z '"\:\.])/g;
     let result: RegExpExecArray | null = null;
 
     while ((result = rx.exec(board))) {
-        captures.push(result[1]?.trim() || "");
+        captures.push(/[A-Za-z]/.test(result[1] ?? "_") ? result[1] : "");
     }
 
     return _.chunk(captures, BOARD_X_LENGTH).map((letters: string[], i) => {

@@ -1,1 +1,2004 @@
-(()=>{var t={872:function(t,e,r){var n,i,u=this&&this.__createBinding||(Object.create?function(t,e,r,n){void 0===n&&(n=r),Object.defineProperty(t,n,{enumerable:!0,get:function(){return e[r]}})}:function(t,e,r,n){void 0===n&&(n=r),t[n]=e[r]}),l=this&&this.__setModuleDefault||(Object.create?function(t,e){Object.defineProperty(t,"default",{enumerable:!0,value:e})}:function(t,e){t.default=e}),o=this&&this.__importStar||function(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var r in t)"default"!==r&&Object.prototype.hasOwnProperty.call(t,r)&&u(e,t,r);return l(e,t),e};n=[r,e,r(311),r(601)],void 0===(i=function(t,e,r,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.Bag=void 0,r=o(r);var i=function(){function t(){this.letters=n.startingBagLetters.slice()}return t.prototype.count=function(){return this.letters.length},t.prototype.draw=function(t){return this.letters=r.shuffle(this.letters),this.letters.splice(0,t)},t.prototype.swap=function(t){var e=this.draw(t.length);return this.add(t.slice(0,e.length)),t.length>e.length?e.concat(t.slice(e.length)):e},t.prototype.remove=function(t){var e=this;t.forEach((function(t){var r=e.letters.indexOf(t);r>-1&&e.letters.splice(r,1)}))},t.prototype.add=function(t){var e;(e=this.letters).push.apply(e,t)},t.prototype.isEmpty=function(){return 0===this.letters.length},t.prototype.totalPoints=function(){return this.letters.reduce((function(t,e){return t+n.letterValueMap[e]}),0)},t.prototype.print=function(){return"("+this.count()+") "+JSON.stringify(r.countBy(this.letters.sort())).slice(1,-1)},t.prototype.toJSON=function(){return this.letters.slice()},t}();e.Bag=i}.apply(e,n))||(t.exports=i)},601:function(t,e,r){var n,i,u=this&&this.__createBinding||(Object.create?function(t,e,r,n){void 0===n&&(n=r),Object.defineProperty(t,n,{enumerable:!0,get:function(){return e[r]}})}:function(t,e,r,n){void 0===n&&(n=r),t[n]=e[r]}),l=this&&this.__setModuleDefault||(Object.create?function(t,e){Object.defineProperty(t,"default",{enumerable:!0,value:e})}:function(t,e){t.default=e}),o=this&&this.__importStar||function(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var r in t)"default"!==r&&Object.prototype.hasOwnProperty.call(t,r)&&u(e,t,r);return l(e,t),e};n=[r,e,r(311),r(272),r(259),r(565)],void 0===(i=function(t,e,r,n,i,u){"use strict";var l;Object.defineProperty(e,"__esModule",{value:!0}),e.coordinatesToMultiplierType=e.coordinatesToMultiplier=e.letterValueMap=e.startingBagLetters=e.emptyBoard=e.coordinateChars=e.BOARD_Y_LENGTH=e.BOARD_X_LENGTH=e.MAX_RACK_TILES=void 0,r=o(r),e.MAX_RACK_TILES=7,e.BOARD_X_LENGTH=15,e.BOARD_Y_LENGTH=15,e.coordinateChars="ABCDEFGHIJKLMNO",e.emptyBoard="\n   A B C D E F G H I J K L M N O\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 1| | | | | | | | | | | | | | | |0\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 2| | | | | | | | | | | | | | | |1\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 3| | | | | | | | | | | | | | | |2\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 4| | | | | | | | | | | | | | | |3\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 5| | | | | | | | | | | | | | | |4\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 6| | | | | | | | | | | | | | | |5\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 7| | | | | | | | | | | | | | | |6\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 8| | | | | | | | | | | | | | | |7\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 9| | | | | | | | | | | | | | | |8\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n10| | | | | | | | | | | | | | | |9\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n11| | | | | | | | | | | | | | | |10\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n12| | | | | | | | | | | | | | | |11\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n13| | | | | | | | | | | | | | | |12\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n14| | | | | | | | | | | | | | | |13\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n15| | | | | | | | | | | | | | | |14\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4\n",e.startingBagLetters=r.flatten([r.times(2,(function(){return n.Letter.BLANK})),r.times(9,(function(){return n.Letter.A})),r.times(2,(function(){return n.Letter.B})),r.times(2,(function(){return n.Letter.C})),r.times(4,(function(){return n.Letter.D})),r.times(12,(function(){return n.Letter.E})),r.times(2,(function(){return n.Letter.F})),r.times(3,(function(){return n.Letter.G})),r.times(2,(function(){return n.Letter.H})),r.times(9,(function(){return n.Letter.I})),r.times(1,(function(){return n.Letter.J})),r.times(1,(function(){return n.Letter.K})),r.times(4,(function(){return n.Letter.L})),r.times(2,(function(){return n.Letter.M})),r.times(6,(function(){return n.Letter.N})),r.times(8,(function(){return n.Letter.O})),r.times(2,(function(){return n.Letter.P})),r.times(1,(function(){return n.Letter.Q})),r.times(6,(function(){return n.Letter.R})),r.times(4,(function(){return n.Letter.S})),r.times(6,(function(){return n.Letter.T})),r.times(4,(function(){return n.Letter.U})),r.times(2,(function(){return n.Letter.V})),r.times(2,(function(){return n.Letter.W})),r.times(1,(function(){return n.Letter.X})),r.times(2,(function(){return n.Letter.Y})),r.times(1,(function(){return n.Letter.Z}))]),e.letterValueMap=((l={})[n.Letter.UNSET]=0,l[n.Letter.BLANK]=0,l[n.Letter.A]=1,l[n.Letter.B]=3,l[n.Letter.C]=3,l[n.Letter.D]=2,l[n.Letter.E]=1,l[n.Letter.F]=4,l[n.Letter.G]=2,l[n.Letter.H]=4,l[n.Letter.I]=1,l[n.Letter.J]=8,l[n.Letter.K]=5,l[n.Letter.L]=1,l[n.Letter.M]=3,l[n.Letter.N]=1,l[n.Letter.O]=1,l[n.Letter.P]=3,l[n.Letter.Q]=10,l[n.Letter.R]=1,l[n.Letter.S]=1,l[n.Letter.T]=1,l[n.Letter.U]=1,l[n.Letter.V]=4,l[n.Letter.W]=4,l[n.Letter.X]=8,l[n.Letter.Y]=4,l[n.Letter.Z]=10,l),e.coordinatesToMultiplier={A1:i.Multiplier.Triple,H1:i.Multiplier.Triple,O1:i.Multiplier.Triple,A8:i.Multiplier.Triple,O8:i.Multiplier.Triple,A15:i.Multiplier.Triple,H15:i.Multiplier.Triple,O15:i.Multiplier.Triple,B2:i.Multiplier.Double,N2:i.Multiplier.Double,C3:i.Multiplier.Double,M3:i.Multiplier.Double,D4:i.Multiplier.Double,L4:i.Multiplier.Double,E5:i.Multiplier.Double,K5:i.Multiplier.Double,H8:i.Multiplier.Double,E11:i.Multiplier.Double,K11:i.Multiplier.Double,D12:i.Multiplier.Double,L12:i.Multiplier.Double,C13:i.Multiplier.Double,M13:i.Multiplier.Double,B14:i.Multiplier.Double,N14:i.Multiplier.Double,F2:i.Multiplier.Triple,J2:i.Multiplier.Triple,B6:i.Multiplier.Triple,F6:i.Multiplier.Triple,J6:i.Multiplier.Triple,N6:i.Multiplier.Triple,B10:i.Multiplier.Triple,F10:i.Multiplier.Triple,J10:i.Multiplier.Triple,N10:i.Multiplier.Triple,F14:i.Multiplier.Triple,J14:i.Multiplier.Triple,D1:i.Multiplier.Double,L1:i.Multiplier.Double,G3:i.Multiplier.Double,I3:i.Multiplier.Double,A4:i.Multiplier.Double,H4:i.Multiplier.Double,O4:i.Multiplier.Double,C7:i.Multiplier.Double,G7:i.Multiplier.Double,I7:i.Multiplier.Double,M7:i.Multiplier.Double,D8:i.Multiplier.Double,L8:i.Multiplier.Double,C9:i.Multiplier.Double,G9:i.Multiplier.Double,I9:i.Multiplier.Double,M9:i.Multiplier.Double,A12:i.Multiplier.Double,H12:i.Multiplier.Double,O12:i.Multiplier.Double,G13:i.Multiplier.Double,I13:i.Multiplier.Double,D15:i.Multiplier.Double,L15:i.Multiplier.Double},e.coordinatesToMultiplierType={A1:u.MultiplierType.Word,H1:u.MultiplierType.Word,O1:u.MultiplierType.Word,A8:u.MultiplierType.Word,O8:u.MultiplierType.Word,A15:u.MultiplierType.Word,H15:u.MultiplierType.Word,O15:u.MultiplierType.Word,B2:u.MultiplierType.Word,N2:u.MultiplierType.Word,C3:u.MultiplierType.Word,M3:u.MultiplierType.Word,D4:u.MultiplierType.Word,L4:u.MultiplierType.Word,E5:u.MultiplierType.Word,K5:u.MultiplierType.Word,H8:u.MultiplierType.Word,E11:u.MultiplierType.Word,K11:u.MultiplierType.Word,D12:u.MultiplierType.Word,L12:u.MultiplierType.Word,C13:u.MultiplierType.Word,M13:u.MultiplierType.Word,B14:u.MultiplierType.Word,N14:u.MultiplierType.Word,F2:u.MultiplierType.Letter,J2:u.MultiplierType.Letter,B6:u.MultiplierType.Letter,F6:u.MultiplierType.Letter,J6:u.MultiplierType.Letter,N6:u.MultiplierType.Letter,B10:u.MultiplierType.Letter,F10:u.MultiplierType.Letter,J10:u.MultiplierType.Letter,N10:u.MultiplierType.Letter,F14:u.MultiplierType.Letter,J14:u.MultiplierType.Letter,D1:u.MultiplierType.Letter,L1:u.MultiplierType.Letter,G3:u.MultiplierType.Letter,I3:u.MultiplierType.Letter,A4:u.MultiplierType.Letter,H4:u.MultiplierType.Letter,O4:u.MultiplierType.Letter,C7:u.MultiplierType.Letter,G7:u.MultiplierType.Letter,I7:u.MultiplierType.Letter,M7:u.MultiplierType.Letter,D8:u.MultiplierType.Letter,L8:u.MultiplierType.Letter,C9:u.MultiplierType.Letter,G9:u.MultiplierType.Letter,I9:u.MultiplierType.Letter,M9:u.MultiplierType.Letter,A12:u.MultiplierType.Letter,H12:u.MultiplierType.Letter,O12:u.MultiplierType.Letter,G13:u.MultiplierType.Letter,I13:u.MultiplierType.Letter,D15:u.MultiplierType.Letter,L15:u.MultiplierType.Letter}}.apply(e,n))||(t.exports=i)},272:(t,e,r)=>{var n;void 0===(n=function(t,e){"use strict";var r;Object.defineProperty(e,"__esModule",{value:!0}),e.Letter=void 0,(r=e.Letter||(e.Letter={})).UNSET="",r.BLANK="?",r.A="A",r.B="B",r.C="C",r.D="D",r.E="E",r.F="F",r.G="G",r.H="H",r.I="I",r.J="J",r.K="K",r.L="L",r.M="M",r.N="N",r.O="O",r.P="P",r.Q="Q",r.R="R",r.S="S",r.T="T",r.U="U",r.V="V",r.W="W",r.X="X",r.Y="Y",r.Z="Z"}.apply(e,[r,e]))||(t.exports=n)},259:(t,e,r)=>{var n;void 0===(n=function(t,e){"use strict";var r;Object.defineProperty(e,"__esModule",{value:!0}),e.Multiplier=void 0,(r=e.Multiplier||(e.Multiplier={}))[r.None=0]="None",r[r.Single=1]="Single",r[r.Double=2]="Double",r[r.Triple=3]="Triple"}.apply(e,[r,e]))||(t.exports=n)},565:(t,e,r)=>{var n;void 0===(n=function(t,e){"use strict";var r;Object.defineProperty(e,"__esModule",{value:!0}),e.MultiplierType=void 0,(r=e.MultiplierType||(e.MultiplierType={})).None="",r.Letter="letter",r.Word="word"}.apply(e,[r,e]))||(t.exports=n)},607:(t,e,r)=>{var n,i;n=[r,e,r(872)],void 0===(i=function(t,e,r){}.apply(e,n))||(t.exports=i)},311:function(t,e,r){t.exports=function(){var t="1.13.1",e="object"==typeof self&&self.self===self&&self||"object"==typeof r.g&&r.g.global===r.g&&r.g||Function("return this")()||{},n=Array.prototype,i=Object.prototype,u="undefined"!=typeof Symbol?Symbol.prototype:null,l=n.push,o=n.slice,a=i.toString,f=i.hasOwnProperty,c="undefined"!=typeof ArrayBuffer,p="undefined"!=typeof DataView,s=Array.isArray,v=Object.keys,y=Object.create,h=c&&ArrayBuffer.isView,d=isNaN,M=isFinite,b=!{toString:null}.propertyIsEnumerable("toString"),g=["valueOf","isPrototypeOf","toString","propertyIsEnumerable","hasOwnProperty","toLocaleString"],L=Math.pow(2,53)-1;function T(t,e){return e=null==e?t.length-1:+e,function(){for(var r=Math.max(arguments.length-e,0),n=Array(r),i=0;i<r;i++)n[i]=arguments[i+e];switch(e){case 0:return t.call(this,n);case 1:return t.call(this,arguments[0],n);case 2:return t.call(this,arguments[0],arguments[1],n)}var u=Array(e+1);for(i=0;i<e;i++)u[i]=arguments[i];return u[e]=n,t.apply(this,u)}}function m(t){var e=typeof t;return"function"===e||"object"===e&&!!t}function _(t){return void 0===t}function D(t){return!0===t||!1===t||"[object Boolean]"===a.call(t)}function O(t){var e="[object "+t+"]";return function(t){return a.call(t)===e}}var j=O("String"),A=O("Number"),w=O("Date"),B=O("RegExp"),S=O("Error"),N=O("Symbol"),x=O("ArrayBuffer"),E=O("Function"),W=e.document&&e.document.childNodes;"object"!=typeof Int8Array&&"function"!=typeof W&&(E=function(t){return"function"==typeof t||!1});var I=E,F=O("Object"),P=p&&F(new DataView(new ArrayBuffer(8))),H="undefined"!=typeof Map&&F(new Map),C=O("DataView"),R=P?function(t){return null!=t&&I(t.getInt8)&&x(t.buffer)}:C,G=s||O("Array");function J(t,e){return null!=t&&f.call(t,e)}var K=O("Arguments");!function(){K(arguments)||(K=function(t){return J(t,"callee")})}();var V=K;function k(t){return A(t)&&d(t)}function U(t){return function(){return t}}function X(t){return function(e){var r=t(e);return"number"==typeof r&&r>=0&&r<=L}}function Y(t){return function(e){return null==e?void 0:e[t]}}var q=Y("byteLength"),z=X(q),Q=/\[object ((I|Ui)nt(8|16|32)|Float(32|64)|Uint8Clamped|Big(I|Ui)nt64)Array\]/,Z=c?function(t){return h?h(t)&&!R(t):z(t)&&Q.test(a.call(t))}:U(!1),$=Y("length");function tt(t,e){e=function(t){for(var e={},r=t.length,n=0;n<r;++n)e[t[n]]=!0;return{contains:function(t){return e[t]},push:function(r){return e[r]=!0,t.push(r)}}}(e);var r=g.length,n=t.constructor,u=I(n)&&n.prototype||i,l="constructor";for(J(t,l)&&!e.contains(l)&&e.push(l);r--;)(l=g[r])in t&&t[l]!==u[l]&&!e.contains(l)&&e.push(l)}function et(t){if(!m(t))return[];if(v)return v(t);var e=[];for(var r in t)J(t,r)&&e.push(r);return b&&tt(t,e),e}function rt(t,e){var r=et(e),n=r.length;if(null==t)return!n;for(var i=Object(t),u=0;u<n;u++){var l=r[u];if(e[l]!==i[l]||!(l in i))return!1}return!0}function nt(t){return t instanceof nt?t:this instanceof nt?void(this._wrapped=t):new nt(t)}function it(t){return new Uint8Array(t.buffer||t,t.byteOffset||0,q(t))}nt.VERSION=t,nt.prototype.value=function(){return this._wrapped},nt.prototype.valueOf=nt.prototype.toJSON=nt.prototype.value,nt.prototype.toString=function(){return String(this._wrapped)};var ut="[object DataView]";function lt(t,e,r,n){if(t===e)return 0!==t||1/t==1/e;if(null==t||null==e)return!1;if(t!=t)return e!=e;var i=typeof t;return("function"===i||"object"===i||"object"==typeof e)&&function t(e,r,n,i){e instanceof nt&&(e=e._wrapped),r instanceof nt&&(r=r._wrapped);var l=a.call(e);if(l!==a.call(r))return!1;if(P&&"[object Object]"==l&&R(e)){if(!R(r))return!1;l=ut}switch(l){case"[object RegExp]":case"[object String]":return""+e==""+r;case"[object Number]":return+e!=+e?+r!=+r:0==+e?1/+e==1/r:+e==+r;case"[object Date]":case"[object Boolean]":return+e==+r;case"[object Symbol]":return u.valueOf.call(e)===u.valueOf.call(r);case"[object ArrayBuffer]":case ut:return t(it(e),it(r),n,i)}var o="[object Array]"===l;if(!o&&Z(e)){if(q(e)!==q(r))return!1;if(e.buffer===r.buffer&&e.byteOffset===r.byteOffset)return!0;o=!0}if(!o){if("object"!=typeof e||"object"!=typeof r)return!1;var f=e.constructor,c=r.constructor;if(f!==c&&!(I(f)&&f instanceof f&&I(c)&&c instanceof c)&&"constructor"in e&&"constructor"in r)return!1}i=i||[];for(var p=(n=n||[]).length;p--;)if(n[p]===e)return i[p]===r;if(n.push(e),i.push(r),o){if((p=e.length)!==r.length)return!1;for(;p--;)if(!lt(e[p],r[p],n,i))return!1}else{var s,v=et(e);if(p=v.length,et(r).length!==p)return!1;for(;p--;)if(!J(r,s=v[p])||!lt(e[s],r[s],n,i))return!1}return n.pop(),i.pop(),!0}(t,e,r,n)}function ot(t){if(!m(t))return[];var e=[];for(var r in t)e.push(r);return b&&tt(t,e),e}function at(t){var e=$(t);return function(r){if(null==r)return!1;var n=ot(r);if($(n))return!1;for(var i=0;i<e;i++)if(!I(r[t[i]]))return!1;return t!==vt||!I(r[ft])}}var ft="forEach",ct=["clear","delete"],pt=["get","has","set"],st=ct.concat(ft,pt),vt=ct.concat(pt),yt=["add"].concat(ct,ft,"has"),ht=H?at(st):O("Map"),dt=H?at(vt):O("WeakMap"),Mt=H?at(yt):O("Set"),bt=O("WeakSet");function gt(t){for(var e=et(t),r=e.length,n=Array(r),i=0;i<r;i++)n[i]=t[e[i]];return n}function Lt(t){for(var e={},r=et(t),n=0,i=r.length;n<i;n++)e[t[r[n]]]=r[n];return e}function Tt(t){var e=[];for(var r in t)I(t[r])&&e.push(r);return e.sort()}function mt(t,e){return function(r){var n=arguments.length;if(e&&(r=Object(r)),n<2||null==r)return r;for(var i=1;i<n;i++)for(var u=arguments[i],l=t(u),o=l.length,a=0;a<o;a++){var f=l[a];e&&void 0!==r[f]||(r[f]=u[f])}return r}}var _t=mt(ot),Dt=mt(et),Ot=mt(ot,!0);function jt(t){if(!m(t))return{};if(y)return y(t);var e=function(){};e.prototype=t;var r=new e;return e.prototype=null,r}function At(t){return m(t)?G(t)?t.slice():_t({},t):t}function wt(t){return G(t)?t:[t]}function Bt(t){return nt.toPath(t)}function St(t,e){for(var r=e.length,n=0;n<r;n++){if(null==t)return;t=t[e[n]]}return r?t:void 0}function Nt(t,e,r){var n=St(t,Bt(e));return _(n)?r:n}function xt(t){return t}function Et(t){return t=Dt({},t),function(e){return rt(e,t)}}function Wt(t){return t=Bt(t),function(e){return St(e,t)}}function It(t,e,r){if(void 0===e)return t;switch(null==r?3:r){case 1:return function(r){return t.call(e,r)};case 3:return function(r,n,i){return t.call(e,r,n,i)};case 4:return function(r,n,i,u){return t.call(e,r,n,i,u)}}return function(){return t.apply(e,arguments)}}function Ft(t,e,r){return null==t?xt:I(t)?It(t,e,r):m(t)&&!G(t)?Et(t):Wt(t)}function Pt(t,e){return Ft(t,e,1/0)}function Ht(t,e,r){return nt.iteratee!==Pt?nt.iteratee(t,e):Ft(t,e,r)}function Ct(){}function Rt(t,e){return null==e&&(e=t,t=0),t+Math.floor(Math.random()*(e-t+1))}nt.toPath=wt,nt.iteratee=Pt;var Gt=Date.now||function(){return(new Date).getTime()};function Jt(t){var e=function(e){return t[e]},r="(?:"+et(t).join("|")+")",n=RegExp(r),i=RegExp(r,"g");return function(t){return t=null==t?"":""+t,n.test(t)?t.replace(i,e):t}}var Kt={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","`":"&#x60;"},Vt=Jt(Kt),kt=Jt(Lt(Kt)),Ut=nt.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g},Xt=/(.)^/,Yt={"'":"'","\\":"\\","\r":"r","\n":"n","\u2028":"u2028","\u2029":"u2029"},qt=/\\|'|\r|\n|\u2028|\u2029/g;function zt(t){return"\\"+Yt[t]}var Qt=/^\s*(\w|\$)+\s*$/,Zt=0;function $t(t,e,r,n,i){if(!(n instanceof e))return t.apply(r,i);var u=jt(t.prototype),l=t.apply(u,i);return m(l)?l:u}var te=T((function(t,e){var r=te.placeholder,n=function(){for(var i=0,u=e.length,l=Array(u),o=0;o<u;o++)l[o]=e[o]===r?arguments[i++]:e[o];for(;i<arguments.length;)l.push(arguments[i++]);return $t(t,n,this,this,l)};return n}));te.placeholder=nt;var ee=T((function(t,e,r){if(!I(t))throw new TypeError("Bind must be called on a function");var n=T((function(i){return $t(t,n,e,this,r.concat(i))}));return n})),re=X($);function ne(t,e,r,n){if(n=n||[],e||0===e){if(e<=0)return n.concat(t)}else e=1/0;for(var i=n.length,u=0,l=$(t);u<l;u++){var o=t[u];if(re(o)&&(G(o)||V(o)))if(e>1)ne(o,e-1,r,n),i=n.length;else for(var a=0,f=o.length;a<f;)n[i++]=o[a++];else r||(n[i++]=o)}return n}var ie=T((function(t,e){var r=(e=ne(e,!1,!1)).length;if(r<1)throw new Error("bindAll must be passed function names");for(;r--;){var n=e[r];t[n]=ee(t[n],t)}return t})),ue=T((function(t,e,r){return setTimeout((function(){return t.apply(null,r)}),e)})),le=te(ue,nt,1);function oe(t){return function(){return!t.apply(this,arguments)}}function ae(t,e){var r;return function(){return--t>0&&(r=e.apply(this,arguments)),t<=1&&(e=null),r}}var fe=te(ae,2);function ce(t,e,r){e=Ht(e,r);for(var n,i=et(t),u=0,l=i.length;u<l;u++)if(e(t[n=i[u]],n,t))return n}function pe(t){return function(e,r,n){r=Ht(r,n);for(var i=$(e),u=t>0?0:i-1;u>=0&&u<i;u+=t)if(r(e[u],u,e))return u;return-1}}var se=pe(1),ve=pe(-1);function ye(t,e,r,n){for(var i=(r=Ht(r,n,1))(e),u=0,l=$(t);u<l;){var o=Math.floor((u+l)/2);r(t[o])<i?u=o+1:l=o}return u}function he(t,e,r){return function(n,i,u){var l=0,a=$(n);if("number"==typeof u)t>0?l=u>=0?u:Math.max(u+a,l):a=u>=0?Math.min(u+1,a):u+a+1;else if(r&&u&&a)return n[u=r(n,i)]===i?u:-1;if(i!=i)return(u=e(o.call(n,l,a),k))>=0?u+l:-1;for(u=t>0?l:a-1;u>=0&&u<a;u+=t)if(n[u]===i)return u;return-1}}var de=he(1,se,ye),Me=he(-1,ve);function be(t,e,r){var n=(re(t)?se:ce)(t,e,r);if(void 0!==n&&-1!==n)return t[n]}function ge(t,e,r){var n,i;if(e=It(e,r),re(t))for(n=0,i=t.length;n<i;n++)e(t[n],n,t);else{var u=et(t);for(n=0,i=u.length;n<i;n++)e(t[u[n]],u[n],t)}return t}function Le(t,e,r){e=Ht(e,r);for(var n=!re(t)&&et(t),i=(n||t).length,u=Array(i),l=0;l<i;l++){var o=n?n[l]:l;u[l]=e(t[o],o,t)}return u}function Te(t){var e=function(e,r,n,i){var u=!re(e)&&et(e),l=(u||e).length,o=t>0?0:l-1;for(i||(n=e[u?u[o]:o],o+=t);o>=0&&o<l;o+=t){var a=u?u[o]:o;n=r(n,e[a],a,e)}return n};return function(t,r,n,i){var u=arguments.length>=3;return e(t,It(r,i,4),n,u)}}var me=Te(1),_e=Te(-1);function De(t,e,r){var n=[];return e=Ht(e,r),ge(t,(function(t,r,i){e(t,r,i)&&n.push(t)})),n}function Oe(t,e,r){e=Ht(e,r);for(var n=!re(t)&&et(t),i=(n||t).length,u=0;u<i;u++){var l=n?n[u]:u;if(!e(t[l],l,t))return!1}return!0}function je(t,e,r){e=Ht(e,r);for(var n=!re(t)&&et(t),i=(n||t).length,u=0;u<i;u++){var l=n?n[u]:u;if(e(t[l],l,t))return!0}return!1}function Ae(t,e,r,n){return re(t)||(t=gt(t)),("number"!=typeof r||n)&&(r=0),de(t,e,r)>=0}var we=T((function(t,e,r){var n,i;return I(e)?i=e:(e=Bt(e),n=e.slice(0,-1),e=e[e.length-1]),Le(t,(function(t){var u=i;if(!u){if(n&&n.length&&(t=St(t,n)),null==t)return;u=t[e]}return null==u?u:u.apply(t,r)}))}));function Be(t,e){return Le(t,Wt(e))}function Se(t,e,r){var n,i,u=-1/0,l=-1/0;if(null==e||"number"==typeof e&&"object"!=typeof t[0]&&null!=t)for(var o=0,a=(t=re(t)?t:gt(t)).length;o<a;o++)null!=(n=t[o])&&n>u&&(u=n);else e=Ht(e,r),ge(t,(function(t,r,n){((i=e(t,r,n))>l||i===-1/0&&u===-1/0)&&(u=t,l=i)}));return u}function Ne(t,e,r){if(null==e||r)return re(t)||(t=gt(t)),t[Rt(t.length-1)];var n=re(t)?At(t):gt(t),i=$(n);e=Math.max(Math.min(e,i),0);for(var u=i-1,l=0;l<e;l++){var o=Rt(l,u),a=n[l];n[l]=n[o],n[o]=a}return n.slice(0,e)}function xe(t,e){return function(r,n,i){var u=e?[[],[]]:{};return n=Ht(n,i),ge(r,(function(e,i){var l=n(e,i,r);t(u,e,l)})),u}}var Ee=xe((function(t,e,r){J(t,r)?t[r].push(e):t[r]=[e]})),We=xe((function(t,e,r){t[r]=e})),Ie=xe((function(t,e,r){J(t,r)?t[r]++:t[r]=1})),Fe=xe((function(t,e,r){t[r?0:1].push(e)}),!0),Pe=/[^\ud800-\udfff]|[\ud800-\udbff][\udc00-\udfff]|[\ud800-\udfff]/g;function He(t,e,r){return e in r}var Ce=T((function(t,e){var r={},n=e[0];if(null==t)return r;I(n)?(e.length>1&&(n=It(n,e[1])),e=ot(t)):(n=He,e=ne(e,!1,!1),t=Object(t));for(var i=0,u=e.length;i<u;i++){var l=e[i],o=t[l];n(o,l,t)&&(r[l]=o)}return r})),Re=T((function(t,e){var r,n=e[0];return I(n)?(n=oe(n),e.length>1&&(r=e[1])):(e=Le(ne(e,!1,!1),String),n=function(t,r){return!Ae(e,r)}),Ce(t,n,r)}));function Ge(t,e,r){return o.call(t,0,Math.max(0,t.length-(null==e||r?1:e)))}function Je(t,e,r){return null==t||t.length<1?null==e||r?void 0:[]:null==e||r?t[0]:Ge(t,t.length-e)}function Ke(t,e,r){return o.call(t,null==e||r?1:e)}var Ve=T((function(t,e){return e=ne(e,!0,!0),De(t,(function(t){return!Ae(e,t)}))})),ke=T((function(t,e){return Ve(t,e)}));function Ue(t,e,r,n){D(e)||(n=r,r=e,e=!1),null!=r&&(r=Ht(r,n));for(var i=[],u=[],l=0,o=$(t);l<o;l++){var a=t[l],f=r?r(a,l,t):a;e&&!r?(l&&u===f||i.push(a),u=f):r?Ae(u,f)||(u.push(f),i.push(a)):Ae(i,a)||i.push(a)}return i}var Xe=T((function(t){return Ue(ne(t,!0,!0))}));function Ye(t){for(var e=t&&Se(t,$).length||0,r=Array(e),n=0;n<e;n++)r[n]=Be(t,n);return r}var qe=T(Ye);function ze(t,e){return t._chain?nt(e).chain():e}function Qe(t){return ge(Tt(t),(function(e){var r=nt[e]=t[e];nt.prototype[e]=function(){var t=[this._wrapped];return l.apply(t,arguments),ze(this,r.apply(nt,t))}})),nt}ge(["pop","push","reverse","shift","sort","splice","unshift"],(function(t){var e=n[t];nt.prototype[t]=function(){var r=this._wrapped;return null!=r&&(e.apply(r,arguments),"shift"!==t&&"splice"!==t||0!==r.length||delete r[0]),ze(this,r)}})),ge(["concat","join","slice"],(function(t){var e=n[t];nt.prototype[t]=function(){var t=this._wrapped;return null!=t&&(t=e.apply(t,arguments)),ze(this,t)}}));var Ze=Qe({__proto__:null,VERSION:t,restArguments:T,isObject:m,isNull:function(t){return null===t},isUndefined:_,isBoolean:D,isElement:function(t){return!(!t||1!==t.nodeType)},isString:j,isNumber:A,isDate:w,isRegExp:B,isError:S,isSymbol:N,isArrayBuffer:x,isDataView:R,isArray:G,isFunction:I,isArguments:V,isFinite:function(t){return!N(t)&&M(t)&&!isNaN(parseFloat(t))},isNaN:k,isTypedArray:Z,isEmpty:function(t){if(null==t)return!0;var e=$(t);return"number"==typeof e&&(G(t)||j(t)||V(t))?0===e:0===$(et(t))},isMatch:rt,isEqual:function(t,e){return lt(t,e)},isMap:ht,isWeakMap:dt,isSet:Mt,isWeakSet:bt,keys:et,allKeys:ot,values:gt,pairs:function(t){for(var e=et(t),r=e.length,n=Array(r),i=0;i<r;i++)n[i]=[e[i],t[e[i]]];return n},invert:Lt,functions:Tt,methods:Tt,extend:_t,extendOwn:Dt,assign:Dt,defaults:Ot,create:function(t,e){var r=jt(t);return e&&Dt(r,e),r},clone:At,tap:function(t,e){return e(t),t},get:Nt,has:function(t,e){for(var r=(e=Bt(e)).length,n=0;n<r;n++){var i=e[n];if(!J(t,i))return!1;t=t[i]}return!!r},mapObject:function(t,e,r){e=Ht(e,r);for(var n=et(t),i=n.length,u={},l=0;l<i;l++){var o=n[l];u[o]=e(t[o],o,t)}return u},identity:xt,constant:U,noop:Ct,toPath:wt,property:Wt,propertyOf:function(t){return null==t?Ct:function(e){return Nt(t,e)}},matcher:Et,matches:Et,times:function(t,e,r){var n=Array(Math.max(0,t));e=It(e,r,1);for(var i=0;i<t;i++)n[i]=e(i);return n},random:Rt,now:Gt,escape:Vt,unescape:kt,templateSettings:Ut,template:function(t,e,r){!e&&r&&(e=r),e=Ot({},e,nt.templateSettings);var n=RegExp([(e.escape||Xt).source,(e.interpolate||Xt).source,(e.evaluate||Xt).source].join("|")+"|$","g"),i=0,u="__p+='";t.replace(n,(function(e,r,n,l,o){return u+=t.slice(i,o).replace(qt,zt),i=o+e.length,r?u+="'+\n((__t=("+r+"))==null?'':_.escape(__t))+\n'":n?u+="'+\n((__t=("+n+"))==null?'':__t)+\n'":l&&(u+="';\n"+l+"\n__p+='"),e})),u+="';\n";var l,o=e.variable;if(o){if(!Qt.test(o))throw new Error("variable is not a bare identifier: "+o)}else u="with(obj||{}){\n"+u+"}\n",o="obj";u="var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};\n"+u+"return __p;\n";try{l=new Function(o,"_",u)}catch(t){throw t.source=u,t}var a=function(t){return l.call(this,t,nt)};return a.source="function("+o+"){\n"+u+"}",a},result:function(t,e,r){var n=(e=Bt(e)).length;if(!n)return I(r)?r.call(t):r;for(var i=0;i<n;i++){var u=null==t?void 0:t[e[i]];void 0===u&&(u=r,i=n),t=I(u)?u.call(t):u}return t},uniqueId:function(t){var e=++Zt+"";return t?t+e:e},chain:function(t){var e=nt(t);return e._chain=!0,e},iteratee:Pt,partial:te,bind:ee,bindAll:ie,memoize:function(t,e){var r=function(n){var i=r.cache,u=""+(e?e.apply(this,arguments):n);return J(i,u)||(i[u]=t.apply(this,arguments)),i[u]};return r.cache={},r},delay:ue,defer:le,throttle:function(t,e,r){var n,i,u,l,o=0;r||(r={});var a=function(){o=!1===r.leading?0:Gt(),n=null,l=t.apply(i,u),n||(i=u=null)},f=function(){var f=Gt();o||!1!==r.leading||(o=f);var c=e-(f-o);return i=this,u=arguments,c<=0||c>e?(n&&(clearTimeout(n),n=null),o=f,l=t.apply(i,u),n||(i=u=null)):n||!1===r.trailing||(n=setTimeout(a,c)),l};return f.cancel=function(){clearTimeout(n),o=0,n=i=u=null},f},debounce:function(t,e,r){var n,i,u,l,o,a=function(){var f=Gt()-i;e>f?n=setTimeout(a,e-f):(n=null,r||(l=t.apply(o,u)),n||(u=o=null))},f=T((function(f){return o=this,u=f,i=Gt(),n||(n=setTimeout(a,e),r&&(l=t.apply(o,u))),l}));return f.cancel=function(){clearTimeout(n),n=u=o=null},f},wrap:function(t,e){return te(e,t)},negate:oe,compose:function(){var t=arguments,e=t.length-1;return function(){for(var r=e,n=t[e].apply(this,arguments);r--;)n=t[r].call(this,n);return n}},after:function(t,e){return function(){if(--t<1)return e.apply(this,arguments)}},before:ae,once:fe,findKey:ce,findIndex:se,findLastIndex:ve,sortedIndex:ye,indexOf:de,lastIndexOf:Me,find:be,detect:be,findWhere:function(t,e){return be(t,Et(e))},each:ge,forEach:ge,map:Le,collect:Le,reduce:me,foldl:me,inject:me,reduceRight:_e,foldr:_e,filter:De,select:De,reject:function(t,e,r){return De(t,oe(Ht(e)),r)},every:Oe,all:Oe,some:je,any:je,contains:Ae,includes:Ae,include:Ae,invoke:we,pluck:Be,where:function(t,e){return De(t,Et(e))},max:Se,min:function(t,e,r){var n,i,u=1/0,l=1/0;if(null==e||"number"==typeof e&&"object"!=typeof t[0]&&null!=t)for(var o=0,a=(t=re(t)?t:gt(t)).length;o<a;o++)null!=(n=t[o])&&n<u&&(u=n);else e=Ht(e,r),ge(t,(function(t,r,n){((i=e(t,r,n))<l||i===1/0&&u===1/0)&&(u=t,l=i)}));return u},shuffle:function(t){return Ne(t,1/0)},sample:Ne,sortBy:function(t,e,r){var n=0;return e=Ht(e,r),Be(Le(t,(function(t,r,i){return{value:t,index:n++,criteria:e(t,r,i)}})).sort((function(t,e){var r=t.criteria,n=e.criteria;if(r!==n){if(r>n||void 0===r)return 1;if(r<n||void 0===n)return-1}return t.index-e.index})),"value")},groupBy:Ee,indexBy:We,countBy:Ie,partition:Fe,toArray:function(t){return t?G(t)?o.call(t):j(t)?t.match(Pe):re(t)?Le(t,xt):gt(t):[]},size:function(t){return null==t?0:re(t)?t.length:et(t).length},pick:Ce,omit:Re,first:Je,head:Je,take:Je,initial:Ge,last:function(t,e,r){return null==t||t.length<1?null==e||r?void 0:[]:null==e||r?t[t.length-1]:Ke(t,Math.max(0,t.length-e))},rest:Ke,tail:Ke,drop:Ke,compact:function(t){return De(t,Boolean)},flatten:function(t,e){return ne(t,e,!1)},without:ke,uniq:Ue,unique:Ue,union:Xe,intersection:function(t){for(var e=[],r=arguments.length,n=0,i=$(t);n<i;n++){var u=t[n];if(!Ae(e,u)){var l;for(l=1;l<r&&Ae(arguments[l],u);l++);l===r&&e.push(u)}}return e},difference:Ve,unzip:Ye,transpose:Ye,zip:qe,object:function(t,e){for(var r={},n=0,i=$(t);n<i;n++)e?r[t[n]]=e[n]:r[t[n][0]]=t[n][1];return r},range:function(t,e,r){null==e&&(e=t||0,t=0),r||(r=e<t?-1:1);for(var n=Math.max(Math.ceil((e-t)/r),0),i=Array(n),u=0;u<n;u++,t+=r)i[u]=t;return i},chunk:function(t,e){if(null==e||e<1)return[];for(var r=[],n=0,i=t.length;n<i;)r.push(o.call(t,n,n+=e));return r},mixin:Qe,default:nt});return Ze._=Ze,Ze}()}},e={};function r(n){var i=e[n];if(void 0!==i)return i.exports;var u=e[n]={exports:{}};return t[n].call(u.exports,u,u.exports,r),u.exports}r.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(t){if("object"==typeof window)return window}}(),r(607)})();
+define("scrabblecore", ["knockout","underscore"], (__WEBPACK_EXTERNAL_MODULE_knockout__, __WEBPACK_EXTERNAL_MODULE_underscore__) => { return /******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/classes/bag.ts":
+/*!****************************!*\
+  !*** ./src/classes/bag.ts ***!
+  \****************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.Bag = void 0;
+    _ = __importStar(_);
+    var Bag = /** @class */ (function () {
+        function Bag() {
+            this.letters = constants_1.startingBagLetters.slice();
+        }
+        Bag.prototype.count = function () {
+            return this.letters.length;
+        };
+        Bag.prototype.draw = function (count) {
+            this.letters = _.shuffle(this.letters);
+            return this.letters.splice(0, count);
+        };
+        Bag.prototype.swap = function (letters) {
+            var drawn = this.draw(letters.length);
+            // Ensure we can't receive more than we give (end of game scenario).
+            this.add(letters.slice(0, drawn.length));
+            // If attempting to exchange for more than is possible, give
+            // them back their extra letters.
+            if (letters.length > drawn.length)
+                return drawn.concat(letters.slice(drawn.length));
+            return drawn;
+        };
+        Bag.prototype.remove = function (letters) {
+            var _this = this;
+            letters.forEach(function (letter) {
+                var index = _this.letters.indexOf(letter);
+                if (index > -1)
+                    _this.letters.splice(index, 1);
+            });
+        };
+        Bag.prototype.add = function (letters) {
+            var _a;
+            (_a = this.letters).push.apply(_a, letters);
+        };
+        Bag.prototype.isEmpty = function () {
+            return this.letters.length === 0;
+        };
+        Bag.prototype.totalPoints = function () {
+            return this.letters.reduce(function (sum, c) { return sum + constants_1.letterValueMap[c]; }, 0);
+        };
+        Bag.prototype.print = function () {
+            return ("(" + this.count() + ") " +
+                JSON.stringify(_.countBy(this.letters.sort())).slice(1, -1));
+        };
+        Bag.prototype.toJSON = function () {
+            return this.letters.slice();
+        };
+        return Bag;
+    }());
+    exports.Bag = Bag;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/classes/game.ts":
+/*!*****************************!*\
+  !*** ./src/classes/game.ts ***!
+  \*****************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! knockout */ "knockout"), __webpack_require__(/*! ../enums/actiontype */ "./src/enums/actiontype.ts"), __webpack_require__(/*! ../functions/parseplaycommand */ "./src/functions/parseplaycommand.ts"), __webpack_require__(/*! ../functions/playmove */ "./src/functions/playmove.ts"), __webpack_require__(/*! ../functions/printboard */ "./src/functions/printboard.ts"), __webpack_require__(/*! ../functions/parseletter */ "./src/functions/parseletter.ts"), __webpack_require__(/*! ../functions/getnextturn */ "./src/functions/getnextturn.ts"), __webpack_require__(/*! ../functions/getturnfromactions */ "./src/functions/getturnfromactions.ts"), __webpack_require__(/*! ../functions/getscoresfromactions */ "./src/functions/getscoresfromactions.ts"), __webpack_require__(/*! ../functions/getmovelogfromactions */ "./src/functions/getmovelogfromactions.ts"), __webpack_require__(/*! ../functions/parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ../functions/createboardfromactions */ "./src/functions/createboardfromactions.ts"), __webpack_require__(/*! ../functions/createbagfromactions */ "./src/functions/createbagfromactions.ts"), __webpack_require__(/*! ../functions/playcommandhaslettersfromrack */ "./src/functions/playcommandhaslettersfromrack.ts"), __webpack_require__(/*! ../functions/createrackfromactions */ "./src/functions/createrackfromactions.ts"), __webpack_require__(/*! ../functions/createracksfromactions */ "./src/functions/createracksfromactions.ts"), __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, ko, actiontype_1, parseplaycommand_1, playmove_1, printboard_1, parseletter_1, getnextturn_1, getturnfromactions_1, getscoresfromactions_1, getmovelogfromactions_1, parseaction_1, createboardfromactions_1, createbagfromactions_1, playcommandhaslettersfromrack_1, createrackfromactions_1, createracksfromactions_1, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.Game = void 0;
+    _ = __importStar(_);
+    ko = __importStar(ko);
+    var Game = /** @class */ (function () {
+        function Game(gameJson) {
+            this.id = _.now().toString(36);
+            this.teams = 2;
+            /** Raw action strings */
+            this.actions = [];
+            this.actionIndex = -1;
+            if (gameJson) {
+                this.id = gameJson.id;
+                this.teams = gameJson.teams;
+                this.actions = gameJson.actions;
+                this.actionIndex = gameJson.actionIndex;
+            }
+            this.currentState = ko.observable(this.snapshot());
+            this.currentStatus = ko.observable(this.status());
+            if (!gameJson) {
+                this._handleAction(actiontype_1.ActionType.NewGame);
+            }
+        }
+        Game.prototype.snapshot = function () {
+            return {
+                id: this.id,
+                teams: this.teams,
+                actions: this.actions,
+                actionIndex: this.actionIndex,
+            };
+        };
+        Game.prototype.status = function () {
+            return {
+                bag: this._bag().toJSON(),
+                board: this._board().map(function (row) {
+                    return row.map(function (sq) { return sq.blankLetter || sq.letter; });
+                }),
+                racks: createracksfromactions_1.createRacksFromActions(this._nonFutureActions(), this.teams).map(function (r) { return r.toJSON(); }),
+                scores: getscoresfromactions_1.getScoresFromActions(this._nonFutureActions(), this.teams),
+                teamTurn: this._teamTurn(),
+                moveLog: getmovelogfromactions_1.getMoveLogFromActions(this._nonFutureActions(), this.teams),
+                gameOver: parseaction_1.parseAction(this.actions[this.actionIndex])[0] ==
+                    actiontype_1.ActionType.EndGame,
+            };
+        };
+        Game.prototype.draw = function () {
+            var drawn = this._draw();
+            if (drawn.length > 0) {
+                this._handleAction(actiontype_1.ActionType.Draw, actiontype_1.ActionType.Draw + " " + drawn.join(""));
+            }
+        };
+        Game.prototype.skip = function () {
+            this._handleAction(actiontype_1.ActionType.Skip);
+        };
+        Game.prototype.swap = function (actionRaw) {
+            actionRaw = this._swap(actionRaw);
+            this._handleAction(actiontype_1.ActionType.Swap, actionRaw);
+        };
+        Game.prototype.play = function (actionRaw) {
+            var command = parseaction_1.parseAction(actionRaw)[1];
+            var errorMessage = this._play(command);
+            if (errorMessage) {
+                // Check for if we are in the browser v. node
+                if (typeof process !== "undefined") {
+                    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    console.log("!!!! Error: " + errorMessage);
+                    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                }
+                else {
+                    alert(errorMessage);
+                }
+            }
+            else
+                this._handleAction(actiontype_1.ActionType.Play, actionRaw);
+            if (!this._canGameContinue()) {
+                this._handleAction(actiontype_1.ActionType.EndGame, actiontype_1.ActionType.EndGame + " " + this._bag().totalPoints());
+            }
+        };
+        Game.prototype.undo = function () {
+            this._handleAction(actiontype_1.ActionType.Undo);
+        };
+        Game.prototype.redo = function () {
+            this._handleAction(actiontype_1.ActionType.Redo);
+        };
+        Game.prototype.print = function () {
+            var _this = this;
+            console.log("Tiles remaining in bag " + this._bag().print());
+            console.log(printboard_1.printBoard(this._board()));
+            this.actions.forEach(function (action, i) {
+                if (i === _this.actionIndex)
+                    action += " <<<";
+                console.log(i + 1 + ". " + action);
+            });
+            console.log("It's team " + this._teamTurn() + "'s turn");
+            console.log("Current letters: " + this._teamTurnRack().print());
+        };
+        Game.prototype.load = function (gameJson) {
+            this.id = gameJson.id;
+            this.teams = gameJson.teams;
+            this.actions = gameJson.actions;
+            this.actionIndex = gameJson.actionIndex;
+            this.currentState(this.snapshot());
+            this.currentStatus(this.status());
+        };
+        Game.prototype._handleAction = function (actionType, actionRaw) {
+            switch (actionType) {
+                case actiontype_1.ActionType.NewGame:
+                case actiontype_1.ActionType.Draw:
+                case actiontype_1.ActionType.Skip:
+                case actiontype_1.ActionType.Swap:
+                case actiontype_1.ActionType.Play:
+                case actiontype_1.ActionType.EndGame:
+                    // In order to overwrite any previous states (after undo)
+                    this.actions.length = this.actionIndex + 1;
+                    this.actions.push(actionRaw || actionType);
+                    this.actionIndex++;
+                    break;
+                case actiontype_1.ActionType.Undo:
+                    this.actionIndex = Math.max(this.actionIndex - 1, 0);
+                    break;
+                case actiontype_1.ActionType.Redo:
+                    this.actionIndex = Math.min(this.actionIndex + 1, this.actions.length - 1);
+                    break;
+            }
+            this.currentState(this.snapshot());
+            this.currentStatus(this.status());
+        };
+        Game.prototype._nonFutureActions = function () {
+            return this.actions.slice(0, this.actionIndex + 1);
+        };
+        Game.prototype._bag = function () {
+            return createbagfromactions_1.createBagFromActions(this._nonFutureActions());
+        };
+        Game.prototype._board = function () {
+            return createboardfromactions_1.createBoardFromActions(this._nonFutureActions());
+        };
+        Game.prototype._teamTurn = function () {
+            return getturnfromactions_1.getTurnFromActions(this._nonFutureActions(), this.teams);
+        };
+        Game.prototype._teamTurnRack = function () {
+            return createrackfromactions_1.createRackFromActions(this._nonFutureActions(), this.teams);
+        };
+        Game.prototype._teamPreviousRack = function () {
+            return createracksfromactions_1.createRacksFromActions(this._nonFutureActions(), this.teams)[getnextturn_1.getNextTurn(this.teams, this._teamTurn(), true) - 1];
+        };
+        Game.prototype._draw = function () {
+            var rack = this._teamTurnRack();
+            var drawn = this._bag().draw(rack.needs());
+            rack.add(drawn);
+            return drawn;
+        };
+        /** @returns raw action containing drawn letters as well as exchanged letters */
+        Game.prototype._swap = function (actionRaw) {
+            var letters = parseaction_1.parseAction(actionRaw)[1].split("").map(parseletter_1.parseLetter);
+            var rack = this._teamTurnRack();
+            var uniqRackLetters = _.unique(rack.letters);
+            var uniqSwapLetters = _.unique(letters);
+            if (letters.length > constants_1.MAX_RACK_TILES ||
+                // Check if the player is attempting to swap letters they don't have.
+                _.intersection(uniqRackLetters, uniqSwapLetters).length !=
+                    uniqSwapLetters.length) {
+                throw new Error("You're trying to swap letters you don't have");
+            }
+            var bag = this._bag();
+            // Prevent swapping for more than is in the bag.
+            if (letters.length > bag.count())
+                letters.length = bag.count();
+            rack.remove(letters);
+            var newLetters = bag.swap(letters);
+            rack.add(newLetters);
+            return actiontype_1.ActionType.Swap + " " + letters.join("") + " " + newLetters.join("");
+        };
+        Game.prototype._play = function (command) {
+            var move;
+            try {
+                move = parseplaycommand_1.parsePlayCommand(command);
+            }
+            catch (err) {
+                return err.message;
+            }
+            var rack = this._teamTurnRack();
+            // Simple check
+            var isValid = playcommandhaslettersfromrack_1.playCommandHasLettersFromRack(move, rack.letters);
+            if (!isValid)
+                return "Word doesn't use letters from rack (1)";
+            try {
+                var result = playmove_1.playMove(move, this._board());
+                var owned = rack.letters.slice();
+                var used = result.usedLetters.slice();
+                var letter = void 0;
+                while ((letter = used.pop())) {
+                    var i = owned.indexOf(letter);
+                    if (i === -1)
+                        return "Word doesn't use letters from rack (2)";
+                    owned.splice(i, 1);
+                }
+                return "";
+            }
+            catch (err) {
+                throw err;
+                //return err.message;
+            }
+        };
+        Game.prototype._canGameContinue = function () {
+            var previousTurnRackIndex = getnextturn_1.getNextTurn(this.teams, this._teamTurn(), true) - 1;
+            var otherTeamsRacks = createracksfromactions_1.createRacksFromActions(this._nonFutureActions(), this.teams);
+            otherTeamsRacks.splice(previousTurnRackIndex, 1);
+            var otherTeamsRackNeeds = otherTeamsRacks.reduce(function (sum, c) { return sum + c.needs(); }, 0);
+            if (
+            // IF the team who just went played all of their tiles
+            this._teamPreviousRack().isEmpty() &&
+                // AND the bag is empty
+                // OR the team who just went won't get a chance to draw again
+                (this._bag().isEmpty() || this._bag().count() < otherTeamsRackNeeds))
+                return false;
+            return true;
+        };
+        return Game;
+    }());
+    exports.Game = Game;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/classes/rack.ts":
+/*!*****************************!*\
+  !*** ./src/classes/rack.ts ***!
+  \*****************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.Rack = void 0;
+    var Rack = /** @class */ (function () {
+        function Rack() {
+            this.letters = [];
+        }
+        Rack.prototype.count = function () {
+            return this.letters.length;
+        };
+        Rack.prototype.needs = function () {
+            return constants_1.MAX_RACK_TILES - this.count();
+        };
+        Rack.prototype.add = function (letters) {
+            for (var i = 0; i < letters.length && this.letters.length <= constants_1.MAX_RACK_TILES; i++)
+                this.letters.push(letters[i]);
+        };
+        Rack.prototype.remove = function (letters) {
+            for (var _i = 0, letters_1 = letters; _i < letters_1.length; _i++) {
+                var letter = letters_1[_i];
+                var existingIndex = this.letters.indexOf(letter);
+                if (existingIndex > -1)
+                    this.letters.splice(existingIndex, 1);
+            }
+        };
+        Rack.prototype.totalPoints = function () {
+            return this.letters.reduce(function (sum, c) { return sum + constants_1.letterValueMap[c]; }, 0);
+        };
+        Rack.prototype.isEmpty = function () {
+            return this.letters.length === 0;
+        };
+        Rack.prototype.print = function () {
+            return "[" + this.letters.join("") + "]";
+        };
+        Rack.prototype.toJSON = function () {
+            return this.letters.slice();
+        };
+        return Rack;
+    }());
+    exports.Rack = Rack;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/constants.ts":
+/*!**************************!*\
+  !*** ./src/constants.ts ***!
+  \**************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ./enums/letter */ "./src/enums/letter.ts"), __webpack_require__(/*! ./enums/multiplier */ "./src/enums/multiplier.ts"), __webpack_require__(/*! ./enums/multipliertype */ "./src/enums/multipliertype.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, letter_1, multiplier_1, multipliertype_1) {
+    "use strict";
+    var _a;
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.coordinatesToMultiplierType = exports.coordinatesToMultiplier = exports.letterValueMap = exports.startingBagLetters = exports.emptyBoard = exports.coordinateChars = exports.BOARD_Y_LENGTH = exports.BOARD_X_LENGTH = exports.MAX_RACK_TILES = void 0;
+    _ = __importStar(_);
+    exports.MAX_RACK_TILES = 7;
+    exports.BOARD_X_LENGTH = 15;
+    exports.BOARD_Y_LENGTH = 15;
+    exports.coordinateChars = "ABCDEFGHIJKLMNO";
+    exports.emptyBoard = "\n   A B C D E F G H I J K L M N O\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 1| | | | | | | | | | | | | | | |0\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 2| | | | | | | | | | | | | | | |1\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 3| | | | | | | | | | | | | | | |2\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 4| | | | | | | | | | | | | | | |3\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 5| | | | | | | | | | | | | | | |4\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 6| | | | | | | | | | | | | | | |5\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 7| | | | | | | | | | | | | | | |6\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 8| | | | | | | | | | | | | | | |7\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 9| | | | | | | | | | | | | | | |8\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n10| | | | | | | | | | | | | | | |9\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n11| | | | | | | | | | | | | | | |10\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n12| | | | | | | | | | | | | | | |11\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n13| | | | | | | | | | | | | | | |12\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n14| | | | | | | | | | | | | | | |13\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n15| | | | | | | | | | | | | | | |14\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4\n";
+    exports.startingBagLetters = _.flatten([
+        _.times(2, function () { return letter_1.Letter.BLANK; }),
+        _.times(9, function () { return letter_1.Letter.A; }),
+        _.times(2, function () { return letter_1.Letter.B; }),
+        _.times(2, function () { return letter_1.Letter.C; }),
+        _.times(4, function () { return letter_1.Letter.D; }),
+        _.times(12, function () { return letter_1.Letter.E; }),
+        _.times(2, function () { return letter_1.Letter.F; }),
+        _.times(3, function () { return letter_1.Letter.G; }),
+        _.times(2, function () { return letter_1.Letter.H; }),
+        _.times(9, function () { return letter_1.Letter.I; }),
+        _.times(1, function () { return letter_1.Letter.J; }),
+        _.times(1, function () { return letter_1.Letter.K; }),
+        _.times(4, function () { return letter_1.Letter.L; }),
+        _.times(2, function () { return letter_1.Letter.M; }),
+        _.times(6, function () { return letter_1.Letter.N; }),
+        _.times(8, function () { return letter_1.Letter.O; }),
+        _.times(2, function () { return letter_1.Letter.P; }),
+        _.times(1, function () { return letter_1.Letter.Q; }),
+        _.times(6, function () { return letter_1.Letter.R; }),
+        _.times(4, function () { return letter_1.Letter.S; }),
+        _.times(6, function () { return letter_1.Letter.T; }),
+        _.times(4, function () { return letter_1.Letter.U; }),
+        _.times(2, function () { return letter_1.Letter.V; }),
+        _.times(2, function () { return letter_1.Letter.W; }),
+        _.times(1, function () { return letter_1.Letter.X; }),
+        _.times(2, function () { return letter_1.Letter.Y; }),
+        _.times(1, function () { return letter_1.Letter.Z; }),
+    ]);
+    exports.letterValueMap = (_a = {},
+        _a[letter_1.Letter.UNSET] = 0,
+        _a[letter_1.Letter.BLANK] = 0,
+        _a[letter_1.Letter.A] = 1,
+        _a[letter_1.Letter.B] = 3,
+        _a[letter_1.Letter.C] = 3,
+        _a[letter_1.Letter.D] = 2,
+        _a[letter_1.Letter.E] = 1,
+        _a[letter_1.Letter.F] = 4,
+        _a[letter_1.Letter.G] = 2,
+        _a[letter_1.Letter.H] = 4,
+        _a[letter_1.Letter.I] = 1,
+        _a[letter_1.Letter.J] = 8,
+        _a[letter_1.Letter.K] = 5,
+        _a[letter_1.Letter.L] = 1,
+        _a[letter_1.Letter.M] = 3,
+        _a[letter_1.Letter.N] = 1,
+        _a[letter_1.Letter.O] = 1,
+        _a[letter_1.Letter.P] = 3,
+        _a[letter_1.Letter.Q] = 10,
+        _a[letter_1.Letter.R] = 1,
+        _a[letter_1.Letter.S] = 1,
+        _a[letter_1.Letter.T] = 1,
+        _a[letter_1.Letter.U] = 1,
+        _a[letter_1.Letter.V] = 4,
+        _a[letter_1.Letter.W] = 4,
+        _a[letter_1.Letter.X] = 8,
+        _a[letter_1.Letter.Y] = 4,
+        _a[letter_1.Letter.Z] = 10,
+        _a);
+    exports.coordinatesToMultiplier = {
+        // Triple words
+        A1: multiplier_1.Multiplier.Triple,
+        H1: multiplier_1.Multiplier.Triple,
+        O1: multiplier_1.Multiplier.Triple,
+        A8: multiplier_1.Multiplier.Triple,
+        O8: multiplier_1.Multiplier.Triple,
+        A15: multiplier_1.Multiplier.Triple,
+        H15: multiplier_1.Multiplier.Triple,
+        O15: multiplier_1.Multiplier.Triple,
+        // Double words
+        B2: multiplier_1.Multiplier.Double,
+        N2: multiplier_1.Multiplier.Double,
+        C3: multiplier_1.Multiplier.Double,
+        M3: multiplier_1.Multiplier.Double,
+        D4: multiplier_1.Multiplier.Double,
+        L4: multiplier_1.Multiplier.Double,
+        E5: multiplier_1.Multiplier.Double,
+        K5: multiplier_1.Multiplier.Double,
+        H8: multiplier_1.Multiplier.Double,
+        E11: multiplier_1.Multiplier.Double,
+        K11: multiplier_1.Multiplier.Double,
+        D12: multiplier_1.Multiplier.Double,
+        L12: multiplier_1.Multiplier.Double,
+        C13: multiplier_1.Multiplier.Double,
+        M13: multiplier_1.Multiplier.Double,
+        B14: multiplier_1.Multiplier.Double,
+        N14: multiplier_1.Multiplier.Double,
+        // Triple letters
+        F2: multiplier_1.Multiplier.Triple,
+        J2: multiplier_1.Multiplier.Triple,
+        B6: multiplier_1.Multiplier.Triple,
+        F6: multiplier_1.Multiplier.Triple,
+        J6: multiplier_1.Multiplier.Triple,
+        N6: multiplier_1.Multiplier.Triple,
+        B10: multiplier_1.Multiplier.Triple,
+        F10: multiplier_1.Multiplier.Triple,
+        J10: multiplier_1.Multiplier.Triple,
+        N10: multiplier_1.Multiplier.Triple,
+        F14: multiplier_1.Multiplier.Triple,
+        J14: multiplier_1.Multiplier.Triple,
+        // Double letters
+        D1: multiplier_1.Multiplier.Double,
+        L1: multiplier_1.Multiplier.Double,
+        G3: multiplier_1.Multiplier.Double,
+        I3: multiplier_1.Multiplier.Double,
+        A4: multiplier_1.Multiplier.Double,
+        H4: multiplier_1.Multiplier.Double,
+        O4: multiplier_1.Multiplier.Double,
+        C7: multiplier_1.Multiplier.Double,
+        G7: multiplier_1.Multiplier.Double,
+        I7: multiplier_1.Multiplier.Double,
+        M7: multiplier_1.Multiplier.Double,
+        D8: multiplier_1.Multiplier.Double,
+        L8: multiplier_1.Multiplier.Double,
+        C9: multiplier_1.Multiplier.Double,
+        G9: multiplier_1.Multiplier.Double,
+        I9: multiplier_1.Multiplier.Double,
+        M9: multiplier_1.Multiplier.Double,
+        A12: multiplier_1.Multiplier.Double,
+        H12: multiplier_1.Multiplier.Double,
+        O12: multiplier_1.Multiplier.Double,
+        G13: multiplier_1.Multiplier.Double,
+        I13: multiplier_1.Multiplier.Double,
+        D15: multiplier_1.Multiplier.Double,
+        L15: multiplier_1.Multiplier.Double,
+    };
+    exports.coordinatesToMultiplierType = {
+        // Triple words
+        A1: multipliertype_1.MultiplierType.Word,
+        H1: multipliertype_1.MultiplierType.Word,
+        O1: multipliertype_1.MultiplierType.Word,
+        A8: multipliertype_1.MultiplierType.Word,
+        O8: multipliertype_1.MultiplierType.Word,
+        A15: multipliertype_1.MultiplierType.Word,
+        H15: multipliertype_1.MultiplierType.Word,
+        O15: multipliertype_1.MultiplierType.Word,
+        // Double words
+        B2: multipliertype_1.MultiplierType.Word,
+        N2: multipliertype_1.MultiplierType.Word,
+        C3: multipliertype_1.MultiplierType.Word,
+        M3: multipliertype_1.MultiplierType.Word,
+        D4: multipliertype_1.MultiplierType.Word,
+        L4: multipliertype_1.MultiplierType.Word,
+        E5: multipliertype_1.MultiplierType.Word,
+        K5: multipliertype_1.MultiplierType.Word,
+        H8: multipliertype_1.MultiplierType.Word,
+        E11: multipliertype_1.MultiplierType.Word,
+        K11: multipliertype_1.MultiplierType.Word,
+        D12: multipliertype_1.MultiplierType.Word,
+        L12: multipliertype_1.MultiplierType.Word,
+        C13: multipliertype_1.MultiplierType.Word,
+        M13: multipliertype_1.MultiplierType.Word,
+        B14: multipliertype_1.MultiplierType.Word,
+        N14: multipliertype_1.MultiplierType.Word,
+        // Triple letters
+        F2: multipliertype_1.MultiplierType.Letter,
+        J2: multipliertype_1.MultiplierType.Letter,
+        B6: multipliertype_1.MultiplierType.Letter,
+        F6: multipliertype_1.MultiplierType.Letter,
+        J6: multipliertype_1.MultiplierType.Letter,
+        N6: multipliertype_1.MultiplierType.Letter,
+        B10: multipliertype_1.MultiplierType.Letter,
+        F10: multipliertype_1.MultiplierType.Letter,
+        J10: multipliertype_1.MultiplierType.Letter,
+        N10: multipliertype_1.MultiplierType.Letter,
+        F14: multipliertype_1.MultiplierType.Letter,
+        J14: multipliertype_1.MultiplierType.Letter,
+        // Double letters
+        D1: multipliertype_1.MultiplierType.Letter,
+        L1: multipliertype_1.MultiplierType.Letter,
+        G3: multipliertype_1.MultiplierType.Letter,
+        I3: multipliertype_1.MultiplierType.Letter,
+        A4: multipliertype_1.MultiplierType.Letter,
+        H4: multipliertype_1.MultiplierType.Letter,
+        O4: multipliertype_1.MultiplierType.Letter,
+        C7: multipliertype_1.MultiplierType.Letter,
+        G7: multipliertype_1.MultiplierType.Letter,
+        I7: multipliertype_1.MultiplierType.Letter,
+        M7: multipliertype_1.MultiplierType.Letter,
+        D8: multipliertype_1.MultiplierType.Letter,
+        L8: multipliertype_1.MultiplierType.Letter,
+        C9: multipliertype_1.MultiplierType.Letter,
+        G9: multipliertype_1.MultiplierType.Letter,
+        I9: multipliertype_1.MultiplierType.Letter,
+        M9: multipliertype_1.MultiplierType.Letter,
+        A12: multipliertype_1.MultiplierType.Letter,
+        H12: multipliertype_1.MultiplierType.Letter,
+        O12: multipliertype_1.MultiplierType.Letter,
+        G13: multipliertype_1.MultiplierType.Letter,
+        I13: multipliertype_1.MultiplierType.Letter,
+        D15: multipliertype_1.MultiplierType.Letter,
+        L15: multipliertype_1.MultiplierType.Letter,
+    };
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/enums/actiontype.ts":
+/*!*********************************!*\
+  !*** ./src/enums/actiontype.ts ***!
+  \*********************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.ActionType = void 0;
+    var ActionType;
+    (function (ActionType) {
+        ActionType["Play"] = "PLAY";
+        ActionType["Skip"] = "SKIP";
+        ActionType["Swap"] = "SWAP";
+        ActionType["Draw"] = "DRAW";
+        /** Doesn't get added to `actions` array */
+        ActionType["Undo"] = "UNDO";
+        /** Doesn't get added to `actions` array */
+        ActionType["Redo"] = "REDO";
+        ActionType["NewGame"] = "NEW_GAME";
+        ActionType["EndGame"] = "GAME_OVER";
+    })(ActionType = exports.ActionType || (exports.ActionType = {}));
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/enums/letter.ts":
+/*!*****************************!*\
+  !*** ./src/enums/letter.ts ***!
+  \*****************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.Letter = void 0;
+    var Letter;
+    (function (Letter) {
+        Letter["UNSET"] = "";
+        Letter["BLANK"] = "?";
+        Letter["A"] = "A";
+        Letter["B"] = "B";
+        Letter["C"] = "C";
+        Letter["D"] = "D";
+        Letter["E"] = "E";
+        Letter["F"] = "F";
+        Letter["G"] = "G";
+        Letter["H"] = "H";
+        Letter["I"] = "I";
+        Letter["J"] = "J";
+        Letter["K"] = "K";
+        Letter["L"] = "L";
+        Letter["M"] = "M";
+        Letter["N"] = "N";
+        Letter["O"] = "O";
+        Letter["P"] = "P";
+        Letter["Q"] = "Q";
+        Letter["R"] = "R";
+        Letter["S"] = "S";
+        Letter["T"] = "T";
+        Letter["U"] = "U";
+        Letter["V"] = "V";
+        Letter["W"] = "W";
+        Letter["X"] = "X";
+        Letter["Y"] = "Y";
+        Letter["Z"] = "Z";
+    })(Letter = exports.Letter || (exports.Letter = {}));
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/enums/multiplier.ts":
+/*!*********************************!*\
+  !*** ./src/enums/multiplier.ts ***!
+  \*********************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.Multiplier = void 0;
+    var Multiplier;
+    (function (Multiplier) {
+        Multiplier[Multiplier["None"] = 0] = "None";
+        Multiplier[Multiplier["Single"] = 1] = "Single";
+        Multiplier[Multiplier["Double"] = 2] = "Double";
+        Multiplier[Multiplier["Triple"] = 3] = "Triple";
+    })(Multiplier = exports.Multiplier || (exports.Multiplier = {}));
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/enums/multipliertype.ts":
+/*!*************************************!*\
+  !*** ./src/enums/multipliertype.ts ***!
+  \*************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.MultiplierType = void 0;
+    var MultiplierType;
+    (function (MultiplierType) {
+        MultiplierType["None"] = "";
+        MultiplierType["Letter"] = "letter";
+        MultiplierType["Word"] = "word";
+    })(MultiplierType = exports.MultiplierType || (exports.MultiplierType = {}));
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/actionchangesturn.ts":
+/*!********************************************!*\
+  !*** ./src/functions/actionchangesturn.ts ***!
+  \********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../enums/actiontype */ "./src/enums/actiontype.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, actiontype_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.actionChangesTurn = void 0;
+    function actionChangesTurn(actionType) {
+        switch (actionType) {
+            case actiontype_1.ActionType.Play:
+            case actiontype_1.ActionType.Skip:
+            case actiontype_1.ActionType.Swap:
+                return true;
+            default:
+                return false;
+        }
+    }
+    exports.actionChangesTurn = actionChangesTurn;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createbagfromactions.ts":
+/*!***********************************************!*\
+  !*** ./src/functions/createbagfromactions.ts ***!
+  \***********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../classes/bag */ "./src/classes/bag.ts"), __webpack_require__(/*! ./parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./parseletter */ "./src/functions/parseletter.ts"), __webpack_require__(/*! ../enums/actiontype */ "./src/enums/actiontype.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, bag_1, parseaction_1, parseletter_1, actiontype_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createBagFromActions = void 0;
+    function createBagFromActions(actions) {
+        var bag = new bag_1.Bag();
+        actions.forEach(function (raw) {
+            var _a = parseaction_1.parseAction(raw), actionType = _a[0], commandPart = _a[1];
+            switch (actionType) {
+                case actiontype_1.ActionType.Draw:
+                    var letters = commandPart.split("").map(parseletter_1.parseLetter);
+                    bag.remove(letters);
+                    break;
+                case actiontype_1.ActionType.Swap:
+                    // A swap command looks like: "SWAP ABC DEF".
+                    // "SWAP" is the action
+                    // "ABC DEF" is the command part
+                    // "ABC" are the letters being exchanged
+                    // "DEF" are the letters being drawn
+                    var _b = commandPart.split(" "), sExchanged = _b[0], sDrawn = _b[1];
+                    var exchanged = sExchanged.split("").map(parseletter_1.parseLetter);
+                    var drawn = sDrawn.split("").map(parseletter_1.parseLetter);
+                    bag.remove(drawn);
+                    bag.add(exchanged);
+                    break;
+                default:
+                    break;
+            }
+        });
+        return bag;
+    }
+    exports.createBagFromActions = createBagFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createboardfromactions.ts":
+/*!*************************************************!*\
+  !*** ./src/functions/createboardfromactions.ts ***!
+  \*************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./createnewboard */ "./src/functions/createnewboard.ts"), __webpack_require__(/*! ./parseplaycommand */ "./src/functions/parseplaycommand.ts"), __webpack_require__(/*! ./parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./playmove */ "./src/functions/playmove.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, createnewboard_1, parseplaycommand_1, parseaction_1, playmove_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createBoardFromActions = void 0;
+    function createBoardFromActions(actions) {
+        var board = createnewboard_1.createNewBoard();
+        actions
+            // Hacky way of filtering to all PLAY actions
+            .filter(function (act) { return act.search(/PLAY /i) === 0; })
+            .map(function (act) { return parseaction_1.parseAction(act)[1]; })
+            .forEach(function (cmd) {
+            var move = parseplaycommand_1.parsePlayCommand(cmd);
+            var result = playmove_1.playMove(move, board);
+            board = result.board;
+        });
+        return board;
+    }
+    exports.createBoardFromActions = createBoardFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createboardfromstatus.ts":
+/*!************************************************!*\
+  !*** ./src/functions/createboardfromstatus.ts ***!
+  \************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../enums/letter */ "./src/enums/letter.ts"), __webpack_require__(/*! ./createnewboard */ "./src/functions/createnewboard.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, letter_1, createnewboard_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createBoardFromStatus = void 0;
+    function createBoardFromStatus(status) {
+        var statusBoard = status.board;
+        var newBoard = createnewboard_1.createNewBoard();
+        for (var y = 0; y < statusBoard.length; y++)
+            for (var x = 0; x < statusBoard[y].length; x++) {
+                var square = newBoard[y][x];
+                var cha = statusBoard[y][x];
+                if (cha) {
+                    square.played = true;
+                    if (/[a-z]/.test(cha)) {
+                        square.letter = letter_1.Letter.BLANK;
+                        square.blankLetter = cha;
+                    }
+                    else {
+                        square.letter = cha;
+                    }
+                }
+            }
+        return newBoard;
+    }
+    exports.createBoardFromStatus = createBoardFromStatus;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createnewboard.ts":
+/*!*****************************************!*\
+  !*** ./src/functions/createnewboard.ts ***!
+  \*****************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./parseboard */ "./src/functions/parseboard.ts"), __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, parseboard_1, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createNewBoard = void 0;
+    function createNewBoard() {
+        return parseboard_1.parseBoard(constants_1.emptyBoard);
+    }
+    exports.createNewBoard = createNewBoard;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createplaycommand.ts":
+/*!********************************************!*\
+  !*** ./src/functions/createplaycommand.ts ***!
+  \********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ../constants */ "./src/constants.ts"), __webpack_require__(/*! ./parsesquarecoordinates */ "./src/functions/parsesquarecoordinates.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, constants_1, parsesquarecoordinates_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createPlayCommand = void 0;
+    _ = __importStar(_);
+    /**
+     * This function is for a UI implementation to create a play command.
+     * It is expected that the UI context would only have knowledge of the letters
+     * being played, and the letters on the board.
+     * From that, we have to determine what the official "move" is.
+     */
+    function createPlayCommand(move, board) {
+        // First check that all of the squares from the move are in the same row or col
+        var sameCol = _.unique(move.map(function (sq) { return parsesquarecoordinates_1.parseSquareCoordinates(sq)[0]; })).length == 1;
+        var sameRow = _.unique(move.map(function (sq) { return parsesquarecoordinates_1.parseSquareCoordinates(sq)[1]; })).length == 1;
+        if (!sameRow && !sameCol)
+            throw new Error("Move letters weren't placed on the same row or column");
+        var cmd = "";
+        if (sameRow)
+            cmd = checkSameRow(move, board, sameCol && sameRow);
+        else
+            cmd = checkSameCol(move, board);
+        if (!cmd)
+            throw new Error("Invalid command (reason unknown)");
+        return cmd;
+    }
+    exports.createPlayCommand = createPlayCommand;
+    function checkSameRow(move, board, isAmbiguous) {
+        var word = "";
+        var passedFirst = false;
+        var passedLast = false;
+        var started = false;
+        var startingCoord = 0;
+        var y = parsesquarecoordinates_1.parseSquareCoordinates(move[0])[1];
+        var sorted = _.sortBy(move, function (sq) { return parsesquarecoordinates_1.parseSquareCoordinates(sq)[1]; });
+        var first = sorted[0];
+        var last = _.last(sorted);
+        var _loop_1 = function (x) {
+            var sq = board[y][x];
+            // Does the square consist of a letter?
+            if (sq.played || move.some(function (m) { return m.id === sq.id; })) {
+                if (!started) {
+                    started = true;
+                    startingCoord = x;
+                    word = "";
+                }
+                word += sq.blankLetter ? sq.blankLetter.toLowerCase() : sq.letter;
+                if (!passedFirst && sq.id === first.id)
+                    passedFirst = true;
+                if (!passedLast && sq.id === last.id)
+                    passedLast = true;
+            }
+            else if (started) {
+                if (passedFirst && passedLast)
+                    if (isAmbiguous && word.length === 1)
+                        return { value: checkSameCol(move, board) };
+                    else
+                        return { value: word + " " + (constants_1.coordinateChars.charAt(startingCoord) + (y + 1)) + " H" };
+                if (passedFirst || passedLast)
+                    throw new Error("Move doesn't entirely connect");
+                started = false;
+            }
+        };
+        for (var x = 0; x < constants_1.BOARD_X_LENGTH; x++) {
+            var state_1 = _loop_1(x);
+            if (typeof state_1 === "object")
+                return state_1.value;
+        }
+        // Should only be true if word ends at edge of board.
+        if (passedFirst && passedLast)
+            return word + " " + (constants_1.coordinateChars.charAt(startingCoord) + (y + 1)) + " H";
+    }
+    function checkSameCol(move, board) {
+        var word = "";
+        var passedFirst = false;
+        var passedLast = false;
+        var started = false;
+        var startingCoord = 0;
+        var x = parsesquarecoordinates_1.parseSquareCoordinates(move[0])[0];
+        var sorted = _.sortBy(move, function (sq) { return parsesquarecoordinates_1.parseSquareCoordinates(sq)[0]; });
+        var first = sorted[0];
+        var last = _.last(sorted);
+        var _loop_2 = function (y) {
+            var sq = board[y][x];
+            if (sq.played || move.some(function (m) { return m.id === sq.id; })) {
+                if (!started) {
+                    started = true;
+                    startingCoord = y;
+                    word = "";
+                }
+                word += sq.blankLetter ? sq.blankLetter.toLowerCase() : sq.letter;
+                if (!passedFirst && sq.id === first.id)
+                    passedFirst = true;
+                if (!passedLast && sq.id === last.id)
+                    passedLast = true;
+            }
+            else if (started) {
+                if (passedFirst && passedLast)
+                    return { value: word + " " + (constants_1.coordinateChars.charAt(x) + (startingCoord + 1)) + " V" };
+                if (passedFirst || passedLast)
+                    throw new Error("Move doesn't entirely connect");
+                started = false;
+            }
+        };
+        for (var y = 0; y < constants_1.BOARD_Y_LENGTH; y++) {
+            var state_2 = _loop_2(y);
+            if (typeof state_2 === "object")
+                return state_2.value;
+        }
+        // Should only be true if word ends at edge of board.
+        if (passedFirst && passedLast)
+            return word + " " + (constants_1.coordinateChars.charAt(x) + (startingCoord + 1)) + " V";
+    }
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createrackfromactions.ts":
+/*!************************************************!*\
+  !*** ./src/functions/createrackfromactions.ts ***!
+  \************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./createracksfromactions */ "./src/functions/createracksfromactions.ts"), __webpack_require__(/*! ./getturnfromactions */ "./src/functions/getturnfromactions.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, createracksfromactions_1, getturnfromactions_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createRackFromActions = void 0;
+    function createRackFromActions(rawActions, teams) {
+        var racks = createracksfromactions_1.createRacksFromActions(rawActions, teams);
+        var teamTurn = getturnfromactions_1.getTurnFromActions(rawActions, teams);
+        // Rack index = team-number - 1 (since team counting starts at 1)
+        return racks[teamTurn - 1];
+    }
+    exports.createRackFromActions = createRackFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/createracksfromactions.ts":
+/*!*************************************************!*\
+  !*** ./src/functions/createracksfromactions.ts ***!
+  \*************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ../classes/rack */ "./src/classes/rack.ts"), __webpack_require__(/*! ../enums/actiontype */ "./src/enums/actiontype.ts"), __webpack_require__(/*! ./createnewboard */ "./src/functions/createnewboard.ts"), __webpack_require__(/*! ./playmove */ "./src/functions/playmove.ts"), __webpack_require__(/*! ./parseletter */ "./src/functions/parseletter.ts"), __webpack_require__(/*! ./parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./getnextturn */ "./src/functions/getnextturn.ts"), __webpack_require__(/*! ./actionchangesturn */ "./src/functions/actionchangesturn.ts"), __webpack_require__(/*! ./parseplaycommand */ "./src/functions/parseplaycommand.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, rack_1, actiontype_1, createnewboard_1, playmove_1, parseletter_1, parseaction_1, getnextturn_1, actionchangesturn_1, parseplaycommand_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createRacksFromActions = void 0;
+    _ = __importStar(_);
+    function createRacksFromActions(rawActions, teams) {
+        var board = createnewboard_1.createNewBoard();
+        var teamTurn = 1;
+        var racks = _.times(teams, function () { return new rack_1.Rack(); });
+        rawActions.forEach(function (raw) {
+            var _a = parseaction_1.parseAction(raw), actionType = _a[0], commandPart = _a[1];
+            var rack = racks[teamTurn - 1];
+            switch (actionType) {
+                case actiontype_1.ActionType.Play:
+                    var result = playmove_1.playMove(parseplaycommand_1.parsePlayCommand(commandPart), board);
+                    board = result.board;
+                    rack.remove(result.usedLetters);
+                    break;
+                case actiontype_1.ActionType.Swap:
+                    var _b = commandPart.split(" "), sExchanged = _b[0], sDrawn = _b[1];
+                    var exchanged = sExchanged.split("").map(parseletter_1.parseLetter);
+                    var drawn = sDrawn.split("").map(parseletter_1.parseLetter);
+                    rack.remove(exchanged);
+                    rack.add(drawn);
+                    break;
+                case actiontype_1.ActionType.Draw:
+                    rack.add(commandPart.split("").map(parseletter_1.parseLetter));
+                    break;
+                default:
+                    break;
+            }
+            if (actionchangesturn_1.actionChangesTurn(actionType)) {
+                teamTurn = getnextturn_1.getNextTurn(teams, teamTurn, false);
+            }
+        });
+        return racks;
+    }
+    exports.createRacksFromActions = createRacksFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/getmovelogfromactions.ts":
+/*!************************************************!*\
+  !*** ./src/functions/getmovelogfromactions.ts ***!
+  \************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../enums/actiontype */ "./src/enums/actiontype.ts"), __webpack_require__(/*! ./createnewboard */ "./src/functions/createnewboard.ts"), __webpack_require__(/*! ./playmove */ "./src/functions/playmove.ts"), __webpack_require__(/*! ./parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./getnextturn */ "./src/functions/getnextturn.ts"), __webpack_require__(/*! ./actionchangesturn */ "./src/functions/actionchangesturn.ts"), __webpack_require__(/*! ./parseplaycommand */ "./src/functions/parseplaycommand.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, actiontype_1, createnewboard_1, playmove_1, parseaction_1, getnextturn_1, actionchangesturn_1, parseplaycommand_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.getMoveLogFromActions = void 0;
+    function getMoveLogFromActions(rawActions, teams) {
+        var board = createnewboard_1.createNewBoard();
+        var teamTurn = 1;
+        var moves = [];
+        rawActions.forEach(function (raw) {
+            var _a = parseaction_1.parseAction(raw), actionType = _a[0], commandPart = _a[1];
+            var move = "";
+            switch (actionType) {
+                case actiontype_1.ActionType.NewGame:
+                    move += "Game started";
+                    break;
+                case actiontype_1.ActionType.Skip:
+                    move += "Team " + teamTurn + " skipped";
+                    break;
+                case actiontype_1.ActionType.Draw:
+                    move += "Team " + teamTurn + " drew " + commandPart.length + " tiles";
+                    break;
+                case actiontype_1.ActionType.Swap:
+                    move += "Team " + teamTurn + " swapped " + commandPart.split(" ")[0].length + " tiles";
+                    break;
+                case actiontype_1.ActionType.Play:
+                    move += "Team " + teamTurn + " played ";
+                    var result = playmove_1.playMove(parseplaycommand_1.parsePlayCommand(commandPart), board);
+                    board = result.board;
+                    var words = [];
+                    for (var _i = 0, _b = result.words; _i < _b.length; _i++) {
+                        var word = _b[_i];
+                        words.push(word.word + " (" + word.points + ")");
+                    }
+                    move += words.join(", ");
+                    break;
+                case actiontype_1.ActionType.EndGame:
+                    move += "Game over";
+                    break;
+                default:
+                    break;
+            }
+            moves.push(move);
+            if (actionchangesturn_1.actionChangesTurn(actionType)) {
+                teamTurn = getnextturn_1.getNextTurn(teams, teamTurn, false);
+            }
+        });
+        return moves;
+    }
+    exports.getMoveLogFromActions = getMoveLogFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/getnextturn.ts":
+/*!**************************************!*\
+  !*** ./src/functions/getnextturn.ts ***!
+  \**************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.getNextTurn = void 0;
+    function getNextTurn(teams, teamTurn, oppositeDirection) {
+        if (oppositeDirection) {
+            return (teamTurn - 1) % teams || teams;
+        }
+        // Ensure non-zero (e.g. if 3 teams: 1 -> 2 -> 3 -> 1)
+        return (teamTurn + 1) % teams || teams;
+    }
+    exports.getNextTurn = getNextTurn;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/getpointsfromsquare.ts":
+/*!**********************************************!*\
+  !*** ./src/functions/getpointsfromsquare.ts ***!
+  \**********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../constants */ "./src/constants.ts"), __webpack_require__(/*! ../enums/multipliertype */ "./src/enums/multipliertype.ts"), __webpack_require__(/*! ./parseletter */ "./src/functions/parseletter.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, constants_1, multipliertype_1, parseletter_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.getPointsFromSquare = void 0;
+    /**
+     * Returns points for a letter played on a square.
+     * In the case of a square representing a word-multiplier,
+     * the multiplier is added to the `multipliers` argument for
+     * later evaluation.
+     */
+    function getPointsFromSquare(sq, multipliers) {
+        var points = constants_1.letterValueMap[parseletter_1.parseLetter(sq.letter)];
+        if (!sq.played) {
+            if (sq.multiplierType === multipliertype_1.MultiplierType.Word) {
+                multipliers.push(sq.multiplier);
+            }
+            else if (sq.multiplierType === multipliertype_1.MultiplierType.Letter) {
+                points *= sq.multiplier;
+            }
+        }
+        return points;
+    }
+    exports.getPointsFromSquare = getPointsFromSquare;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/getscoresfromactions.ts":
+/*!***********************************************!*\
+  !*** ./src/functions/getscoresfromactions.ts ***!
+  \***********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ../enums/actiontype */ "./src/enums/actiontype.ts"), __webpack_require__(/*! ./createnewboard */ "./src/functions/createnewboard.ts"), __webpack_require__(/*! ./playmove */ "./src/functions/playmove.ts"), __webpack_require__(/*! ./parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./getnextturn */ "./src/functions/getnextturn.ts"), __webpack_require__(/*! ./actionchangesturn */ "./src/functions/actionchangesturn.ts"), __webpack_require__(/*! ./parseplaycommand */ "./src/functions/parseplaycommand.ts"), __webpack_require__(/*! ./createracksfromactions */ "./src/functions/createracksfromactions.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, actiontype_1, createnewboard_1, playmove_1, parseaction_1, getnextturn_1, actionchangesturn_1, parseplaycommand_1, createracksfromactions_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.getScoresFromActions = void 0;
+    _ = __importStar(_);
+    function getScoresFromActions(rawActions, teams) {
+        var board = createnewboard_1.createNewBoard();
+        var teamTurn = 1;
+        var scores = _.times(teams, function () { return 0; });
+        rawActions.forEach(function (raw) {
+            var _a = parseaction_1.parseAction(raw), actionType = _a[0], commandPart = _a[1];
+            switch (actionType) {
+                case actiontype_1.ActionType.Play:
+                    var result = playmove_1.playMove(parseplaycommand_1.parsePlayCommand(commandPart), board);
+                    board = result.board;
+                    scores[teamTurn - 1] += result.words.reduce(function (sum, w) { return sum + w.points; }, 0);
+                    break;
+                case actiontype_1.ActionType.EndGame:
+                    var racks = createracksfromactions_1.createRacksFromActions(rawActions, teams);
+                    var prevTeamTurn = getnextturn_1.getNextTurn(teams, teamTurn, true);
+                    // The following is debatable
+                    // --------------------------
+                    // It's very rare, but in the event of the previous team
+                    // playing a bingo, and there being no possibility of them
+                    // drawing tiles for their next turn given the needs of the
+                    // other teams, then automatically award them all the
+                    // remaining tiles in the bag.
+                    if (commandPart) {
+                        scores[prevTeamTurn - 1] += parseInt(commandPart, 10) || 0;
+                    }
+                    for (var i = 0; i < teams; i++) {
+                        if (i === prevTeamTurn - 1)
+                            continue;
+                        var points = racks[i].totalPoints();
+                        scores[i] -= points;
+                        scores[prevTeamTurn - 1] += points;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            if (actionchangesturn_1.actionChangesTurn(actionType)) {
+                teamTurn = getnextturn_1.getNextTurn(teams, teamTurn, false);
+            }
+        });
+        return scores;
+    }
+    exports.getScoresFromActions = getScoresFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/getturnfromactions.ts":
+/*!*********************************************!*\
+  !*** ./src/functions/getturnfromactions.ts ***!
+  \*********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./actionchangesturn */ "./src/functions/actionchangesturn.ts"), __webpack_require__(/*! ./getnextturn */ "./src/functions/getnextturn.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, parseaction_1, actionchangesturn_1, getnextturn_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.getTurnFromActions = void 0;
+    function getTurnFromActions(actions, teams) {
+        var teamTurn = 1;
+        actions.forEach(function (raw) {
+            var actionType = parseaction_1.parseAction(raw)[0];
+            if (actionchangesturn_1.actionChangesTurn(actionType)) {
+                teamTurn = getnextturn_1.getNextTurn(teams, teamTurn, false);
+            }
+        });
+        return teamTurn;
+    }
+    exports.getTurnFromActions = getTurnFromActions;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/parseaction.ts":
+/*!**************************************!*\
+  !*** ./src/functions/parseaction.ts ***!
+  \**************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.parseAction = void 0;
+    function parseAction(rawAction) {
+        var _a = (rawAction || "").split(" "), action = _a[0], rest = _a.slice(1);
+        var actionType = action.toUpperCase();
+        var commandPart = rest && rest.length > 0 ? rest.join(" ") : "";
+        return [actionType, commandPart];
+    }
+    exports.parseAction = parseAction;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/parseboard.ts":
+/*!*************************************!*\
+  !*** ./src/functions/parseboard.ts ***!
+  \*************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ../constants */ "./src/constants.ts"), __webpack_require__(/*! ../enums/letter */ "./src/enums/letter.ts"), __webpack_require__(/*! ./parseletter */ "./src/functions/parseletter.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, constants_1, letter_1, parseletter_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.parseBoard = void 0;
+    _ = __importStar(_);
+    var lowerCaseRx = /[a-z]/;
+    function parseBoard(board) {
+        var _a;
+        var captures = [];
+        var rx = /\|([A-Za-z '"\:\.])/g;
+        var result = null;
+        while ((result = rx.exec(board))) {
+            captures.push(/[A-Za-z]/.test((_a = result[1]) !== null && _a !== void 0 ? _a : "_") ? result[1] : "");
+        }
+        return _.chunk(captures, constants_1.BOARD_X_LENGTH).map(function (letters, i) {
+            return letters.map(function (letter, j) {
+                var coordinates = constants_1.coordinateChars.charAt(j) + (i + 1);
+                var isBlank = lowerCaseRx.test(letter);
+                return {
+                    id: coordinates,
+                    letter: parseletter_1.parseLetter(letter),
+                    played: letter !== letter_1.Letter.UNSET,
+                    blankLetter: isBlank ? letter.toUpperCase() : "",
+                    multiplier: constants_1.coordinatesToMultiplier[coordinates],
+                    multiplierType: constants_1.coordinatesToMultiplierType[coordinates],
+                };
+            });
+        });
+    }
+    exports.parseBoard = parseBoard;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/parseletter.ts":
+/*!**************************************!*\
+  !*** ./src/functions/parseletter.ts ***!
+  \**************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../enums/letter */ "./src/enums/letter.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, letter_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.parseLetter = void 0;
+    var lowerCaseRx = /[a-z]/;
+    function parseLetter(letter) {
+        if (lowerCaseRx.test(letter))
+            return letter_1.Letter.BLANK;
+        return letter;
+    }
+    exports.parseLetter = parseLetter;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/parseplaycommand.ts":
+/*!*******************************************!*\
+  !*** ./src/functions/parseplaycommand.ts ***!
+  \*******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.parsePlayCommand = void 0;
+    _ = __importStar(_);
+    var playCommandRx = /^(\w+) ([A-Oa-o])(1?[0-9]) ([HhVv])$/;
+    function parsePlayCommand(playCommand) {
+        var parsed = playCommandRx.exec(playCommand);
+        if (!parsed) {
+            throw new Error("Bad command");
+        }
+        var _a = parsed.slice(-4), word = _a[0], startX = _a[1], startY = _a[2], dir = _a[3];
+        if (_.any([word, startX, startY, dir], _.isUndefined)) {
+            throw new Error("Bad command");
+        }
+        if (word.length < 2) {
+            throw new Error("Word must be at least 2 letters long");
+        }
+        return {
+            x: constants_1.coordinateChars.indexOf(startX.toUpperCase()),
+            y: parseInt(startY, 10) - 1,
+            isVertical: dir.toUpperCase() === "V",
+            letters: word.split(""),
+            id: startX + startY,
+        };
+    }
+    exports.parsePlayCommand = parsePlayCommand;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/parsesquarecoordinates.ts":
+/*!*************************************************!*\
+  !*** ./src/functions/parsesquarecoordinates.ts ***!
+  \*************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.parseSquareCoordinates = void 0;
+    function parseSquareCoordinates(square) {
+        var xPart = square.id.charAt(0); // e.g. "A"
+        var yPart = square.id.substr(1); // e.g. "11"
+        return [constants_1.coordinateChars.indexOf(xPart), parseInt(yPart, 10) - 1];
+    }
+    exports.parseSquareCoordinates = parseSquareCoordinates;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/playcommandhaslettersfromrack.ts":
+/*!********************************************************!*\
+  !*** ./src/functions/playcommandhaslettersfromrack.ts ***!
+  \********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! underscore */ "underscore"), __webpack_require__(/*! ./parseletter */ "./src/functions/parseletter.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, _, parseletter_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.playCommandHasLettersFromRack = void 0;
+    _ = __importStar(_);
+    /**
+     * Makes sure that at least one of the rack's tiles is in the move.
+     */
+    function playCommandHasLettersFromRack(move, letters) {
+        var moveLetters = _.map(move.letters, parseletter_1.parseLetter);
+        return _.intersection(moveLetters, letters).length > 0;
+    }
+    exports.playCommandHasLettersFromRack = playCommandHasLettersFromRack;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/playmove.ts":
+/*!***********************************!*\
+  !*** ./src/functions/playmove.ts ***!
+  \***********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! knockout */ "knockout"), __webpack_require__(/*! ./getpointsfromsquare */ "./src/functions/getpointsfromsquare.ts"), __webpack_require__(/*! ./parseletter */ "./src/functions/parseletter.ts"), __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ko, getpointsfromsquare_1, parseletter_1, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.playMove = void 0;
+    ko = __importStar(ko);
+    var lowerCaseRx = /[a-z]/;
+    // Is first word?
+    function playMove(move, board) {
+        var isFirstWord = board.every(function (row) { return row.every(function (sq) { return !sq.played; }); });
+        var wordMultipliers = [];
+        var connectsToPlayedSquare = false;
+        var points = 0;
+        var newlyPlayedSquares = 0;
+        var result = {
+            board: ko.toJS(board),
+            words: [],
+            usedLetters: [],
+        };
+        if (move.isVertical) {
+            var moveY_1 = move.y;
+            move.letters.forEach(function (letter) {
+                var sq = result.board[moveY_1][move.x];
+                if (sq.played &&
+                    sq.letter !== letter &&
+                    sq.blankLetter !== letter) {
+                    throw new Error("Invalid move");
+                }
+                if (!sq.played) {
+                    // Set the letter.
+                    sq.letter = parseletter_1.parseLetter(letter);
+                    result.usedLetters.push(sq.letter);
+                    if (lowerCaseRx.test(letter))
+                        sq.blankLetter = letter;
+                }
+                else {
+                    connectsToPlayedSquare = true;
+                }
+                // Extract the points.
+                points += getpointsfromsquare_1.getPointsFromSquare(sq, wordMultipliers);
+                if (!sq.played) {
+                    newlyPlayedSquares += 1;
+                    var crossingPoints_1 = 0;
+                    var x = move.x;
+                    var crossSq = void 0;
+                    var word = [];
+                    var xLength = result.board[moveY_1].length;
+                    // If there is board space to the left
+                    if (x > 0) {
+                        x--;
+                        // Collect all horizontally intersecting letters on the
+                        // left side of our vertical word.
+                        do {
+                            crossSq = result.board[moveY_1][x];
+                            if (crossSq && crossSq.letter) {
+                                word.unshift(crossSq);
+                            }
+                        } while (--x >= 0 && crossSq.letter);
+                    }
+                    if (word.length > 0) {
+                        // Add our letter to the crossing word.
+                        word.push(sq);
+                    }
+                    x = move.x;
+                    // If there is board space to the right.
+                    if (x < xLength - 1) {
+                        x++;
+                        // Collect all horizontally intersecting letters on the
+                        // right side of our vertical word.
+                        do {
+                            crossSq = result.board[moveY_1][x];
+                            if (crossSq && crossSq.letter) {
+                                word.push(crossSq);
+                            }
+                        } while (++x < xLength && crossSq.letter);
+                    }
+                    // Add our letter to the crossing word if it hasn't yet been.
+                    if (word.length > 0 && word.indexOf(sq) === -1) {
+                        word.unshift(sq);
+                    }
+                    var mults_1 = [];
+                    word.forEach(function (_sq) {
+                        crossingPoints_1 += getpointsfromsquare_1.getPointsFromSquare(_sq, mults_1);
+                    });
+                    mults_1.forEach(function (m) { return (crossingPoints_1 *= m); });
+                    if (word.length > 0) {
+                        connectsToPlayedSquare = true;
+                        result.words.push({
+                            word: word
+                                .map(function (_sq) {
+                                return _sq.blankLetter
+                                    ? _sq.blankLetter.toLowerCase()
+                                    : _sq.letter;
+                            })
+                                .join(""),
+                            points: crossingPoints_1,
+                        });
+                    }
+                }
+                moveY_1++;
+                sq.played = true;
+            });
+        }
+        else {
+            var moveX_1 = move.x;
+            move.letters.forEach(function (letter) {
+                var sq = result.board[move.y][moveX_1];
+                if (sq.played &&
+                    sq.letter !== letter &&
+                    sq.blankLetter !== letter) {
+                    throw new Error("Invalid move");
+                }
+                if (!sq.played) {
+                    sq.letter = parseletter_1.parseLetter(letter);
+                    result.usedLetters.push(sq.letter);
+                    if (lowerCaseRx.test(letter))
+                        sq.blankLetter = letter;
+                }
+                else {
+                    connectsToPlayedSquare = true;
+                }
+                points += getpointsfromsquare_1.getPointsFromSquare(sq, wordMultipliers);
+                if (!sq.played) {
+                    newlyPlayedSquares += 1;
+                    var crossingPoints_2 = 0;
+                    var y = move.y;
+                    var crossSq = void 0;
+                    var word = [];
+                    var yLength = result.board.length;
+                    if (y > 0) {
+                        y--;
+                        do {
+                            crossSq = result.board[y][moveX_1];
+                            if (crossSq && crossSq.letter) {
+                                word.unshift(crossSq);
+                            }
+                        } while (--y >= 0 && crossSq.letter);
+                    }
+                    if (word.length > 0) {
+                        // Add our letter to the crossing word
+                        word.push(sq);
+                    }
+                    y = move.y;
+                    if (y < yLength - 1) {
+                        y++;
+                        do {
+                            crossSq = result.board[y][moveX_1];
+                            // starting right the NEXT left cell, add self + rest of
+                            // cells until vacant one found
+                            if (crossSq && crossSq.letter) {
+                                word.push(crossSq);
+                            }
+                        } while (++y < yLength && crossSq.letter);
+                    }
+                    if (word.length > 0 && word.indexOf(sq) === -1) {
+                        word.unshift(sq);
+                    }
+                    var mults_2 = [];
+                    word.forEach(function (_sq) {
+                        crossingPoints_2 += getpointsfromsquare_1.getPointsFromSquare(_sq, mults_2);
+                    });
+                    mults_2.forEach(function (m) { return (crossingPoints_2 *= m); });
+                    if (word.length > 0) {
+                        connectsToPlayedSquare = true;
+                        result.words.push({
+                            word: word
+                                .map(function (_sq) {
+                                return _sq.blankLetter
+                                    ? _sq.blankLetter.toLowerCase()
+                                    : _sq.letter;
+                            })
+                                .join(""),
+                            points: crossingPoints_2,
+                        });
+                    }
+                }
+                moveX_1++;
+                sq.played = true;
+            });
+        }
+        if (isFirstWord && !result.board[7][7].played) {
+            throw new Error("First word must include middle square");
+        }
+        else if (!isFirstWord && !connectsToPlayedSquare) {
+            throw new Error("Word must connect to other words on the board");
+        }
+        else if (newlyPlayedSquares > constants_1.MAX_RACK_TILES) {
+            throw new Error("Word is larger than maximum amount of tiles");
+        }
+        wordMultipliers.forEach(function (mult) {
+            // Add up points for word in play command.
+            points *= mult;
+        });
+        // Add the original word played.
+        result.words.unshift({
+            word: move.letters.join(""),
+            points: points,
+        });
+        if (newlyPlayedSquares === constants_1.MAX_RACK_TILES) {
+            // Add bingo points, if applicable.
+            result.words.push({
+                word: "*BINGO*",
+                points: 50,
+            });
+        }
+        return result;
+    }
+    exports.playMove = playMove;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/functions/printboard.ts":
+/*!*************************************!*\
+  !*** ./src/functions/printboard.ts ***!
+  \*************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../enums/multiplier */ "./src/enums/multiplier.ts"), __webpack_require__(/*! ../enums/multipliertype */ "./src/enums/multipliertype.ts"), __webpack_require__(/*! ../constants */ "./src/constants.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, multiplier_1, multipliertype_1, constants_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.printBoard = void 0;
+    function printBoard(board) {
+        var template = "\n   A B C D E F G H I J K L M N O\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 1|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|0\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 2|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|1\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 3|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|2\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 4|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|3\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 5|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|4\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 6|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|5\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 7|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|6\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 8|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|7\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n 9|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|8\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n10|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|9\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n11|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|10\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n12|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|11\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n13|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|12\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n14|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|13\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n15|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|14\n  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4\n    ";
+        var i = 0;
+        return template.replace(/X/g, function (x) {
+            var sq = board[Math.floor(i / constants_1.BOARD_X_LENGTH)][i % constants_1.BOARD_X_LENGTH];
+            i += 1;
+            var letter = sq.blankLetter || sq.letter || " ";
+            if (letter == " " && sq.multiplier != multiplier_1.Multiplier.None) {
+                if (sq.multiplier == multiplier_1.Multiplier.Double &&
+                    sq.multiplierType == multipliertype_1.MultiplierType.Letter)
+                    return ".";
+                if (sq.multiplier == multiplier_1.Multiplier.Triple &&
+                    sq.multiplierType == multipliertype_1.MultiplierType.Letter)
+                    return ":";
+                if (sq.multiplier == multiplier_1.Multiplier.Double &&
+                    sq.multiplierType == multipliertype_1.MultiplierType.Word)
+                    return "'";
+                if (sq.multiplier == multiplier_1.Multiplier.Triple &&
+                    sq.multiplierType == multipliertype_1.MultiplierType.Word)
+                    return '"';
+            }
+            return letter;
+        });
+    }
+    exports.printBoard = printBoard;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "./src/scrabblecore.ts":
+/*!*****************************!*\
+  !*** ./src/scrabblecore.ts ***!
+  \*****************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./constants */ "./src/constants.ts"), __webpack_require__(/*! ./classes/bag */ "./src/classes/bag.ts"), __webpack_require__(/*! ./classes/game */ "./src/classes/game.ts"), __webpack_require__(/*! ./classes/rack */ "./src/classes/rack.ts"), __webpack_require__(/*! ./enums/actiontype */ "./src/enums/actiontype.ts"), __webpack_require__(/*! ./enums/letter */ "./src/enums/letter.ts"), __webpack_require__(/*! ./enums/multiplier */ "./src/enums/multiplier.ts"), __webpack_require__(/*! ./enums/multipliertype */ "./src/enums/multipliertype.ts"), __webpack_require__(/*! ./functions/actionchangesturn */ "./src/functions/actionchangesturn.ts"), __webpack_require__(/*! ./functions/createbagfromactions */ "./src/functions/createbagfromactions.ts"), __webpack_require__(/*! ./functions/createboardfromactions */ "./src/functions/createboardfromactions.ts"), __webpack_require__(/*! ./functions/createnewboard */ "./src/functions/createnewboard.ts"), __webpack_require__(/*! ./functions/createplaycommand */ "./src/functions/createplaycommand.ts"), __webpack_require__(/*! ./functions/createrackfromactions */ "./src/functions/createrackfromactions.ts"), __webpack_require__(/*! ./functions/createracksfromactions */ "./src/functions/createracksfromactions.ts"), __webpack_require__(/*! ./functions/getmovelogfromactions */ "./src/functions/getmovelogfromactions.ts"), __webpack_require__(/*! ./functions/getnextturn */ "./src/functions/getnextturn.ts"), __webpack_require__(/*! ./functions/getpointsfromsquare */ "./src/functions/getpointsfromsquare.ts"), __webpack_require__(/*! ./functions/getscoresfromactions */ "./src/functions/getscoresfromactions.ts"), __webpack_require__(/*! ./functions/getturnfromactions */ "./src/functions/getturnfromactions.ts"), __webpack_require__(/*! ./functions/parseaction */ "./src/functions/parseaction.ts"), __webpack_require__(/*! ./functions/parseboard */ "./src/functions/parseboard.ts"), __webpack_require__(/*! ./functions/parseletter */ "./src/functions/parseletter.ts"), __webpack_require__(/*! ./functions/parseplaycommand */ "./src/functions/parseplaycommand.ts"), __webpack_require__(/*! ./functions/parsesquarecoordinates */ "./src/functions/parsesquarecoordinates.ts"), __webpack_require__(/*! ./functions/playcommandhaslettersfromrack */ "./src/functions/playcommandhaslettersfromrack.ts"), __webpack_require__(/*! ./functions/playmove */ "./src/functions/playmove.ts"), __webpack_require__(/*! ./functions/printboard */ "./src/functions/printboard.ts"), __webpack_require__(/*! ./functions/createboardfromstatus */ "./src/functions/createboardfromstatus.ts")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, constants, bag_1, game_1, rack_1, actiontype_1, letter_1, multiplier_1, multipliertype_1, actionchangesturn_1, createbagfromactions_1, createboardfromactions_1, createnewboard_1, createplaycommand_1, createrackfromactions_1, createracksfromactions_1, getmovelogfromactions_1, getnextturn_1, getpointsfromsquare_1, getscoresfromactions_1, getturnfromactions_1, parseaction_1, parseboard_1, parseletter_1, parseplaycommand_1, parsesquarecoordinates_1, playcommandhaslettersfromrack_1, playmove_1, printboard_1, createboardfromstatus_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", ({ value: true }));
+    exports.createBoardFromStatus = exports.printBoard = exports.playMove = exports.playCommandHasLettersFromRack = exports.parseSquareCoordinates = exports.parsePlayCommand = exports.parseLetter = exports.parseBoard = exports.parseAction = exports.getTurnFromActions = exports.getScoresFromActions = exports.getPointsFromSquare = exports.getNextTurn = exports.getMoveLogFromActions = exports.createRacksFromActions = exports.createRackFromActions = exports.createPlayCommand = exports.createNewBoard = exports.createBoardFromActions = exports.createBagFromActions = exports.actionChangesTurn = exports.MultiplierType = exports.Multiplier = exports.Letter = exports.ActionType = exports.Rack = exports.Game = exports.Bag = exports.constants = void 0;
+    exports.constants = __importStar(constants);
+    Object.defineProperty(exports, "Bag", ({ enumerable: true, get: function () { return bag_1.Bag; } }));
+    Object.defineProperty(exports, "Game", ({ enumerable: true, get: function () { return game_1.Game; } }));
+    Object.defineProperty(exports, "Rack", ({ enumerable: true, get: function () { return rack_1.Rack; } }));
+    Object.defineProperty(exports, "ActionType", ({ enumerable: true, get: function () { return actiontype_1.ActionType; } }));
+    Object.defineProperty(exports, "Letter", ({ enumerable: true, get: function () { return letter_1.Letter; } }));
+    Object.defineProperty(exports, "Multiplier", ({ enumerable: true, get: function () { return multiplier_1.Multiplier; } }));
+    Object.defineProperty(exports, "MultiplierType", ({ enumerable: true, get: function () { return multipliertype_1.MultiplierType; } }));
+    Object.defineProperty(exports, "actionChangesTurn", ({ enumerable: true, get: function () { return actionchangesturn_1.actionChangesTurn; } }));
+    Object.defineProperty(exports, "createBagFromActions", ({ enumerable: true, get: function () { return createbagfromactions_1.createBagFromActions; } }));
+    Object.defineProperty(exports, "createBoardFromActions", ({ enumerable: true, get: function () { return createboardfromactions_1.createBoardFromActions; } }));
+    Object.defineProperty(exports, "createNewBoard", ({ enumerable: true, get: function () { return createnewboard_1.createNewBoard; } }));
+    Object.defineProperty(exports, "createPlayCommand", ({ enumerable: true, get: function () { return createplaycommand_1.createPlayCommand; } }));
+    Object.defineProperty(exports, "createRackFromActions", ({ enumerable: true, get: function () { return createrackfromactions_1.createRackFromActions; } }));
+    Object.defineProperty(exports, "createRacksFromActions", ({ enumerable: true, get: function () { return createracksfromactions_1.createRacksFromActions; } }));
+    Object.defineProperty(exports, "getMoveLogFromActions", ({ enumerable: true, get: function () { return getmovelogfromactions_1.getMoveLogFromActions; } }));
+    Object.defineProperty(exports, "getNextTurn", ({ enumerable: true, get: function () { return getnextturn_1.getNextTurn; } }));
+    Object.defineProperty(exports, "getPointsFromSquare", ({ enumerable: true, get: function () { return getpointsfromsquare_1.getPointsFromSquare; } }));
+    Object.defineProperty(exports, "getScoresFromActions", ({ enumerable: true, get: function () { return getscoresfromactions_1.getScoresFromActions; } }));
+    Object.defineProperty(exports, "getTurnFromActions", ({ enumerable: true, get: function () { return getturnfromactions_1.getTurnFromActions; } }));
+    Object.defineProperty(exports, "parseAction", ({ enumerable: true, get: function () { return parseaction_1.parseAction; } }));
+    Object.defineProperty(exports, "parseBoard", ({ enumerable: true, get: function () { return parseboard_1.parseBoard; } }));
+    Object.defineProperty(exports, "parseLetter", ({ enumerable: true, get: function () { return parseletter_1.parseLetter; } }));
+    Object.defineProperty(exports, "parsePlayCommand", ({ enumerable: true, get: function () { return parseplaycommand_1.parsePlayCommand; } }));
+    Object.defineProperty(exports, "parseSquareCoordinates", ({ enumerable: true, get: function () { return parsesquarecoordinates_1.parseSquareCoordinates; } }));
+    Object.defineProperty(exports, "playCommandHasLettersFromRack", ({ enumerable: true, get: function () { return playcommandhaslettersfromrack_1.playCommandHasLettersFromRack; } }));
+    Object.defineProperty(exports, "playMove", ({ enumerable: true, get: function () { return playmove_1.playMove; } }));
+    Object.defineProperty(exports, "printBoard", ({ enumerable: true, get: function () { return printboard_1.printBoard; } }));
+    Object.defineProperty(exports, "createBoardFromStatus", ({ enumerable: true, get: function () { return createboardfromstatus_1.createBoardFromStatus; } }));
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+
+/***/ "knockout":
+/*!***********************************!*\
+  !*** external {"amd":"knockout"} ***!
+  \***********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = __WEBPACK_EXTERNAL_MODULE_knockout__;
+
+/***/ }),
+
+/***/ "underscore":
+/*!*************************************!*\
+  !*** external {"amd":"underscore"} ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = __WEBPACK_EXTERNAL_MODULE_underscore__;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/scrabblecore.ts");
+/******/ 	
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvY2xhc3Nlcy9iYWcudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2NsYXNzZXMvZ2FtZS50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvY2xhc3Nlcy9yYWNrLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9jb25zdGFudHMudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2VudW1zL2FjdGlvbnR5cGUudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2VudW1zL2xldHRlci50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZW51bXMvbXVsdGlwbGllci50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZW51bXMvbXVsdGlwbGllcnR5cGUudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9hY3Rpb25jaGFuZ2VzdHVybi50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZnVuY3Rpb25zL2NyZWF0ZWJhZ2Zyb21hY3Rpb25zLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9mdW5jdGlvbnMvY3JlYXRlYm9hcmRmcm9tYWN0aW9ucy50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZnVuY3Rpb25zL2NyZWF0ZWJvYXJkZnJvbXN0YXR1cy50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZnVuY3Rpb25zL2NyZWF0ZW5ld2JvYXJkLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9mdW5jdGlvbnMvY3JlYXRlcGxheWNvbW1hbmQudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9jcmVhdGVyYWNrZnJvbWFjdGlvbnMudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9jcmVhdGVyYWNrc2Zyb21hY3Rpb25zLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9mdW5jdGlvbnMvZ2V0bW92ZWxvZ2Zyb21hY3Rpb25zLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9mdW5jdGlvbnMvZ2V0bmV4dHR1cm4udHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9nZXRwb2ludHNmcm9tc3F1YXJlLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9mdW5jdGlvbnMvZ2V0c2NvcmVzZnJvbWFjdGlvbnMudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9nZXR0dXJuZnJvbWFjdGlvbnMudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9wYXJzZWFjdGlvbi50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZnVuY3Rpb25zL3BhcnNlYm9hcmQudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9wYXJzZWxldHRlci50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZnVuY3Rpb25zL3BhcnNlcGxheWNvbW1hbmQudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9wYXJzZXNxdWFyZWNvb3JkaW5hdGVzLnRzIiwid2VicGFjazovL3NjcmFiYmxlY29yZS8uL3NyYy9mdW5jdGlvbnMvcGxheWNvbW1hbmRoYXNsZXR0ZXJzZnJvbXJhY2sudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL2Z1bmN0aW9ucy9wbGF5bW92ZS50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvLi9zcmMvZnVuY3Rpb25zL3ByaW50Ym9hcmQudHMiLCJ3ZWJwYWNrOi8vc2NyYWJibGVjb3JlLy4vc3JjL3NjcmFiYmxlY29yZS50cyIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvZXh0ZXJuYWwge1wiYW1kXCI6XCJrbm9ja291dFwifSIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvZXh0ZXJuYWwge1wiYW1kXCI6XCJ1bmRlcnNjb3JlXCJ9Iiwid2VicGFjazovL3NjcmFiYmxlY29yZS93ZWJwYWNrL2Jvb3RzdHJhcCIsIndlYnBhY2s6Ly9zY3JhYmJsZWNvcmUvd2VicGFjay9zdGFydHVwIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFDQSxrQ0FBa0Msb0NBQW9DLGFBQWEsRUFBRSxFQUFFO0FBQ3ZGLENBQUM7QUFDRDtBQUNBO0FBQ0EsQ0FBQztBQUNEO0FBQ0EseUNBQXlDLDZCQUE2QjtBQUN0RSxDQUFDO0FBQ0Q7QUFDQSxDQUFDO0FBQ0Q7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxpQ0FBTyxDQUFDLG1CQUFTLEVBQUUsT0FBUyxFQUFFLG1EQUFZLEVBQUUsNkRBQWMsQ0FBQyxtQ0FBRTtBQUM3RDtBQUNBLElBQUksOENBQTZDLENBQUMsY0FBYyxFQUFDO0FBQ2pFLElBQUksV0FBVztBQUNmO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsYUFBYTtBQUNiO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLDBEQUEwRCw0Q0FBNEMsRUFBRTtBQUN4RztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0wsSUFBSSxXQUFXO0FBQ2YsQ0FBQztBQUFBLGtHQUFDOzs7Ozs7Ozs7OztBQ3pFRjtBQUNBO0FBQ0Esa0NBQWtDLG9DQUFvQyxhQUFhLEVBQUUsRUFBRTtBQUN2RixDQUFDO0FBQ0Q7QUFDQTtBQUNBLENBQUM7QUFDRDtBQUNBLHlDQUF5Qyw2QkFBNkI7QUFD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Q0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQsZ0NBQWdDLDBCQUEwQixFQUFFO0FBQzVELGdDQUFnQywwQkFBMEIsRUFBRTtBQUM1RCxnQ0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQsZ0NBQWdDLDBCQUEwQixFQUFFO0FBQzVELGdDQUFnQywwQkFBMEIsRUFBRTtBQUM1RCxnQ0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQsZ0NBQWdDLDBCQUEwQixFQUFFO0FBQzVELGdDQUFnQywwQkFBMEIsRUFBRTtBQUM1RCxnQ0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQsZ0NBQWdDLDBCQUEwQixFQUFFO0FBQzVELGdDQUFnQywwQkFBMEIsRUFBRTtBQUM1RCxnQ0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQsZ0NBQWdDLDBCQUEwQixFQUFFO0FBQzVELGdDQUFnQywwQkFBMEIsRUFBRTtBQUM1RCxnQ0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQsZ0NBQWdDLDBCQUEwQixFQUFFO0FBQzVELGdDQUFnQywwQkFBMEIsRUFBRTtBQUM1RCxnQ0FBZ0MsMEJBQTBCLEVBQUU7QUFDNUQ7QUFDQSxJQUFJLHNCQUFzQixXQUFXO0FBQ3JDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxJQUFJLCtCQUErQjtBQUNuQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7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RUFBQztBQUN4SSxJQUFJLHFEQUFvRCxDQUFDLHFDQUFxQyw4Q0FBOEMsRUFBRSxFQUFFLEVBQUM7QUFDakosSUFBSSx5REFBd0QsQ0FBQyxxQ0FBcUMsc0RBQXNELEVBQUUsRUFBRSxFQUFDO0FBQzdKLElBQUksMERBQXlELENBQUMscUNBQXFDLHdEQUF3RCxFQUFFLEVBQUUsRUFBQztBQUNoSyxJQUFJLHlEQUF3RCxDQUFDLHFDQUFxQyxzREFBc0QsRUFBRSxFQUFFLEVBQUM7QUFDN0osSUFBSSwrQ0FBOEMsQ0FBQyxxQ0FBcUMsa0NBQWtDLEVBQUUsRUFBRSxFQUFDO0FBQy9ILElBQUksdURBQXNELENBQUMscUNBQXFDLGtEQUFrRCxFQUFFLEVBQUUsRUFBQztBQUN2SixJQUFJLHdEQUF1RCxDQUFDLHFDQUFxQyxvREFBb0QsRUFBRSxFQUFFLEVBQUM7QUFDMUosSUFBSSxzREFBcUQsQ0FBQyxxQ0FBcUMsZ0RBQWdELEVBQUUsRUFBRSxFQUFDO0FBQ3BKLElBQUksK0NBQThDLENBQUMscUNBQXFDLGtDQUFrQyxFQUFFLEVBQUUsRUFBQztBQUMvSCxJQUFJLDhDQUE2QyxDQUFDLHFDQUFxQyxnQ0FBZ0MsRUFBRSxFQUFFLEVBQUM7QUFDNUgsSUFBSSwrQ0FBOEMsQ0FBQyxxQ0FBcUMsa0NBQWtDLEVBQUUsRUFBRSxFQUFDO0FBQy9ILElBQUksb0RBQW1ELENBQUMscUNBQXFDLDRDQUE0QyxFQUFFLEVBQUUsRUFBQztBQUM5SSxJQUFJLDBEQUF5RCxDQUFDLHFDQUFxQyx3REFBd0QsRUFBRSxFQUFFLEVBQUM7QUFDaEssSUFBSSxpRUFBZ0UsQ0FBQyxxQ0FBcUMsc0VBQXNFLEVBQUUsRUFBRSxFQUFDO0FBQ3JMLElBQUksNENBQTJDLENBQUMscUNBQXFDLDRCQUE0QixFQUFFLEVBQUUsRUFBQztBQUN0SCxJQUFJLDhDQUE2QyxDQUFDLHFDQUFxQyxnQ0FBZ0MsRUFBRSxFQUFFLEVBQUM7QUFDNUgsSUFBSSx5REFBd0QsQ0FBQyxxQ0FBcUMsc0RBQXNELEVBQUUsRUFBRSxFQUFDO0FBQzdKLENBQUM7QUFBQSxrR0FBQzs7Ozs7Ozs7Ozs7O0FDcERGLHNEOzs7Ozs7Ozs7OztBQ0FBLHdEOzs7Ozs7VUNBQTtVQUNBOztVQUVBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBOztVQUVBO1VBQ0E7O1VBRUE7VUFDQTtVQUNBOzs7O1VDdEJBO1VBQ0E7VUFDQTtVQUNBIiwiZmlsZSI6InNjcmFiYmxlY29yZS5qcyIsInNvdXJjZVJvb3QiOiIifQ==

@@ -1,8 +1,11 @@
 import { startingBagLetters } from "../src/constants";
 import { Letter } from "../src/enums/letter";
+import { Multiplier } from "../src/enums/multiplier";
+import { MultiplierType } from "../src/enums/multipliertype";
 import { createBagFromActions } from "../src/functions/createbagfromactions";
 import { createPlayCommand } from "../src/functions/createplaycommand";
 import { createNewBoard } from "../src/functions/createnewboard";
+import { parseBoard } from "../src/functions/parseboard";
 import { layout001 } from "./data/boards/layout001";
 
 describe("createBagFromActions", () => {
@@ -147,5 +150,109 @@ describe("createPlayCommand", () => {
         const cmd = createPlayCommand(move, board);
 
         console.assert(cmd == "AB B2 V");
+    });
+
+    it("returns the correct command for single letter played - x", () => {
+        const board = parseBoard(`
+   A B C D E F G H I J K L M N O
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 1|"| | |.| | | |K|I| | |.| | |N|0
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 2| |'| | | |:| |I| |:| | | |B|I|1
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 3| | |'| |A| |.|T|.| | | |J|E|T|2
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4|.| |R|E|L|I|M|E|D| | |N|O|R|E|3
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 5| | | | |A| |O| | | |V| | |R| |4
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 6| |:| | | |:|T| | |P|I|G|G|Y| |5
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 7| | |.| | | |H|E|X| |Z| |.| |C|6
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8|S| | |.| | | |L|U|B|E|.| | |A|7
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 9|O|R|.|H|U|N|T|S|.| |D|A|T|E|s|8
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+10|D|A| |O| |:| | | |:| | | |:|E|9
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+11| |W|O|O|F| | | | | |P|I|N|T|S|10
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12|S| | |V| | | |.|L|O|A|F| |E|.|11
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+13|N|I|C|E|R| |.| |U| | | |Q|A|t|12
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+14|O|'| | | |:| | |R|:| | | |M|A|13
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+15|W|I|N|E| | | |D|E|L|A|Y| | |G|14
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4`);
+
+        const move = [
+            {
+                id: "I1",
+                letter: Letter.I,
+                blankLetter: "",
+                multiplier: Multiplier.None,
+                multiplierType: MultiplierType.None,
+                played: false,
+            },
+        ];
+
+        const cmd = createPlayCommand(move, board);
+
+        console.assert(cmd == "KI H1 H");
+    });
+
+    it("returns the correct command for single letter played - y", () => {
+        const board = parseBoard(`
+   A B C D E F G H I J K L M N O
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 1|"| | |.| | | |K|I| | |.| | |N|0
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 2| |'| | | |:| |I| |:| | | |B|I|1
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 3| | |'| |A| |.|T|.| | | |J|E|T|2
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4|.| |R|E|L|I|M|E|D| | |N|O|R|E|3
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 5| | | | |A| |O| | | |V| | |R| |4
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 6| |:| | | |:|T| | |P|I|G|G|Y| |5
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 7| | |.| | | |H|E|X| |Z| |.| |C|6
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8|S| | |.| | | |L|U|B|E|.| | |A|7
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 9|O|R|.|H|U|N|T|S|.| |D|A|T|E|s|8
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+10|D|A| |O| |U| | | |:| | | |:|E|9
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+11| |W|O|O|F| | | | | |P|I|N|T|S|10
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12|S| | |V| | | |.|L|O|A|F| |E|.|11
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+13|N|I|C|E|R| |.| |U| | | |Q|A|t|12
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+14|O|'| | | |:| | |R|:| | | |M|A|13
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+15|W|I|N|E| | | |D|E|L|A|Y| | |G|14
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4`);
+
+        const move = [
+            {
+                id: "F10",
+                letter: Letter.U,
+                blankLetter: "",
+                multiplier: Multiplier.Double,
+                multiplierType: MultiplierType.Letter,
+                played: false,
+            },
+        ];
+
+        const cmd = createPlayCommand(move, board);
+
+        console.assert(cmd === "NU F9 V");
     });
 });
