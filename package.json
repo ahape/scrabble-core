@@ -6,8 +6,10 @@
     "author": "<ahape@brightmetrics.com>",
     "license": "MIT",
     "scripts": {
+        "test-win": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & mocha -r ts-node/register 'tests/*.ts'",
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/*.ts'",
-        "cli": "clear && env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ts-node cli/index.ts",
+        "cli-win": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & ts-node cli/index.ts",
+        "cli": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ts-node cli/index.ts",
         "build": "tsc -p ./",
         "build-types": "tsc src/scrabblecore.ts --declaration --emitDeclarationOnly --skipLibCheck --outFile dist/types/scrabblecore/index.d.ts",
         "bundle": "npx webpack"
