@@ -64,7 +64,7 @@ export class Game {
     public status(): IGameStatus {
         return {
             bag: this._bag().toJSON(),
-            board: this._board().map((row) =>
+            board: this.board().map((row) =>
                 row.map((sq) => sq.blankLetter || sq.letter)
             ),
             racks: createRacksFromActions(
@@ -134,7 +134,7 @@ export class Game {
 
     public print(): void {
         console.log(`Tiles remaining in bag ` + this._bag().print());
-        console.log(printBoard(this._board()));
+        console.log(printBoard(this.board()));
         this.actions.forEach((action, i) => {
             if (i === this.actionIndex) action += " <<<";
             console.log(i + 1 + ". " + action);
@@ -151,6 +151,10 @@ export class Game {
 
         this.currentState(this.snapshot());
         this.currentStatus(this.status());
+    }
+
+    public board(): ISquare[][] {
+        return createBoardFromActions(this._nonFutureActions());
     }
 
     private _handleAction(actionType: ActionType, actionRaw?: string): void {
@@ -187,10 +191,6 @@ export class Game {
 
     private _bag(): Bag {
         return createBagFromActions(this._nonFutureActions());
-    }
-
-    private _board(): ISquare[][] {
-        return createBoardFromActions(this._nonFutureActions());
     }
 
     private _teamTurn(): number {
@@ -251,7 +251,7 @@ export class Game {
         if (!isValid) return "Word doesn't use letters from rack (1)";
 
         try {
-            const result = playMove(move, this._board());
+            const result = playMove(move, this.board());
             const owned = rack.letters.slice();
             const used = result.usedLetters.slice();
 

@@ -29,7 +29,7 @@ export function parseBoard(board: string): ISquare[][] {
                     id: coordinates,
                     letter: parseLetter(letter),
                     played: letter !== Letter.UNSET,
-                    blankLetter: isBlank ? letter.toUpperCase() : "",
+                    blankLetter: isBlank ? letter : "",
                     multiplier: coordinatesToMultiplier[coordinates],
                     multiplierType: coordinatesToMultiplierType[coordinates],
                 };
