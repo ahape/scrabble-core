@@ -147,7 +147,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
         Game.prototype.status = function () {
             return {
                 bag: this._bag().toJSON(),
-                board: this._board().map(function (row) {
+                board: this.board().map(function (row) {
                     return row.map(function (sq) { return sq.blankLetter || sq.letter; });
                 }),
                 racks: createracksfromactions_1.createRacksFromActions(this._nonFutureActions(), this.teams).map(function (r) { return r.toJSON(); }),
@@ -200,7 +200,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
         Game.prototype.print = function () {
             var _this = this;
             console.log("Tiles remaining in bag " + this._bag().print());
-            console.log(printboard_1.printBoard(this._board()));
+            console.log(printboard_1.printBoard(this.board()));
             this.actions.forEach(function (action, i) {
                 if (i === _this.actionIndex)
                     action += " <<<";
@@ -216,6 +216,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
             this.actionIndex = gameJson.actionIndex;
             this.currentState(this.snapshot());
             this.currentStatus(this.status());
+        };
+        Game.prototype.board = function () {
+            return createboardfromactions_1.createBoardFromActions(this._nonFutureActions());
         };
         Game.prototype._handleAction = function (actionType, actionRaw) {
             switch (actionType) {
@@ -245,9 +248,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
         };
         Game.prototype._bag = function () {
             return createbagfromactions_1.createBagFromActions(this._nonFutureActions());
-        };
-        Game.prototype._board = function () {
-            return createboardfromactions_1.createBoardFromActions(this._nonFutureActions());
         };
         Game.prototype._teamTurn = function () {
             return getturnfromactions_1.getTurnFromActions(this._nonFutureActions(), this.teams);
@@ -299,7 +299,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
             if (!isValid)
                 return "Word doesn't use letters from rack (1)";
             try {
-                var result = playmove_1.playMove(move, this._board());
+                var result = playmove_1.playMove(move, this.board());
                 var owned = rack.letters.slice();
                 var used = result.usedLetters.slice();
                 var letter = void 0;
@@ -1438,7 +1438,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
                     id: coordinates,
                     letter: parseletter_1.parseLetter(letter),
                     played: letter !== letter_1.Letter.UNSET,
-                    blankLetter: isBlank ? letter.toUpperCase() : "",
+                    blankLetter: isBlank ? letter : "",
                     multiplier: constants_1.coordinatesToMultiplier[coordinates],
                     multiplierType: constants_1.coordinatesToMultiplierType[coordinates],
                 };

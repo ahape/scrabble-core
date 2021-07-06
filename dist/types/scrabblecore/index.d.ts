@@ -248,6 +248,7 @@ declare module "functions/createrackfromactions" {
     export function createRackFromActions(rawActions: string[], teams: number): Rack;
 }
 declare module "classes/game" {
+    import { ISquare } from "interfaces/isquare";
     import { IGameState } from "interfaces/igamestate";
     import { IGameStatus } from "interfaces/igamestatus";
     export class Game {
@@ -269,10 +270,10 @@ declare module "classes/game" {
         redo(): void;
         print(): void;
         load(gameJson: IGameState): void;
+        board(): ISquare[][];
         private _handleAction;
         private _nonFutureActions;
         private _bag;
-        private _board;
         private _teamTurn;
         private _teamTurnRack;
         private _teamPreviousRack;
