@@ -34,13 +34,19 @@ export function getMoveLogFromActions(
                 } tiles`;
                 break;
             case ActionType.Play:
+                let total = 0;
                 move += `Team ${teamTurn} played `;
                 const result = playMove(parsePlayCommand(commandPart), board);
                 board = result.board;
                 const words: string[] = [];
-                for (const word of result.words)
+                for (const word of result.words) {
                     words.push(`${word.word} (${word.points})`);
+                    total += word.points;
+                }
                 move += words.join(", ");
+                if (words.length > 1) {
+                    move += ` for a total of ${total}`;
+                }
                 break;
             case ActionType.EndGame:
                 move += "Game over";
