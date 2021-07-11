@@ -52,35 +52,17 @@ export class Game {
         }
     }
 
-    public snapshot(): IGameState {
+    public snapshot(actionIndex: number = this.actionIndex): IGameState {
         return {
             id: this.id,
             teams: this.teams,
             actions: this.actions,
-            actionIndex: this.actionIndex,
+            actionIndex,
         };
     }
 
-    public status(): IGameStatus {
-        return {
-            bag: this._bag().toJSON(),
-            board: this.board().map((row) =>
-                row.map((sq) => sq.blankLetter || sq.letter)
-            ),
-            racks: createRacksFromActions(
-                this._nonFutureActions(),
-                this.teams
-            ).map((r) => r.toJSON()),
-            scores: getScoresFromActions(this._nonFutureActions(), this.teams),
-            teamTurn: this._teamTurn(),
-            moveLog: getMoveLogFromActions(
-                this._nonFutureActions(),
-                this.teams
-            ),
-            gameOver:
-                parseAction(this.actions[this.actionIndex])[0] ==
-                ActionType.EndGame,
-        };
+    public status(actionIndex: number = this.actionIndex): IGameStatus {
+        return this._getStatusFromActionIndex(actionIndex);
     }
 
     public draw(): void {
@@ -155,6 +137,30 @@ export class Game {
 
     public board(): ISquare[][] {
         return createBoardFromActions(this._nonFutureActions());
+    }
+
+    private _getStatusFromActionIndex(actionIndex: number): IGameStatus {
+        var teams = this.teams;
+        var actions = this.actions.slice(0, actionIndex + 1);
+        var bag = createBagFromActions(actions);
+        var board = createBoardFromActions(actions);
+        var racks = createRacksFromActions(actions, teams);
+        var scores = getScoresFromActions(actions, teams);
+        var teamTurn = getTurnFromActions(actions, teams);
+        var moveLog = getMoveLogFromActions(actions, teams);
+        var gameOver =
+            parseAction(this.actions[actionIndex])[0] == ActionType.EndGame;
+        return {
+            bag: bag.toJSON(),
+            board: board.map((row) =>
+                row.map((sq) => sq.blankLetter || sq.letter)
+            ),
+            racks: racks.map((r) => r.toJSON()),
+            scores,
+            teamTurn,
+            moveLog,
+            gameOver,
+        };
     }
 
     private _handleAction(actionType: ActionType, actionRaw?: string): void {

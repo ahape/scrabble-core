@@ -11,6 +11,56 @@ const game002 = JSON.parse(
 
 const game = new Game();
 
+describe("game", () => {
+    describe("#status", () => {
+        it("should return the current status for the game, when given no arguments", () => {
+            game.load(game001);
+
+            const literal = {
+                teamTurn: 2,
+                racks: [[], ["I"]],
+                scores: [270, 308],
+                gameOver: true,
+            };
+
+            const paredStatus = _.pick(game.status(), [
+                "teamTurn",
+                "racks",
+                "scores",
+                "gameOver",
+            ]);
+
+            console.assert(_.isEqual(paredStatus, literal));
+        });
+
+        it("should return the current status for the game, when given a specific action index", () => {
+            game.load(game001);
+
+            const actionIndex = game.actions.length - 3;
+
+            const literal = {
+                bag: [],
+                teamTurn: 1,
+                racks: [["U"], ["I"]],
+                scores: [265, 309],
+                gameOver: false,
+            };
+
+            const paredStatus = _.pick(game.status(actionIndex), [
+                "bag",
+                "teamTurn",
+                "racks",
+                "scores",
+                "gameOver",
+            ]);
+
+            // console.log(paredStatus);
+
+            console.assert(_.isEqual(paredStatus, literal));
+        });
+    });
+});
+
 describe("game001", () => {
     it("completes without any errors", () => {
         let errorMessage = "";

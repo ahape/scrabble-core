@@ -260,8 +260,8 @@ declare module "classes/game" {
         currentState: KnockoutObservable<IGameState>;
         currentStatus: KnockoutObservable<IGameStatus>;
         constructor(gameJson?: IGameState);
-        snapshot(): IGameState;
-        status(): IGameStatus;
+        snapshot(actionIndex?: number): IGameState;
+        status(actionIndex?: number): IGameStatus;
         draw(): void;
         skip(): void;
         swap(actionRaw: string): void;
@@ -271,6 +271,7 @@ declare module "classes/game" {
         print(): void;
         load(gameJson: IGameState): void;
         board(): ISquare[][];
+        private _getStatusFromActionIndex;
         private _handleAction;
         private _nonFutureActions;
         private _bag;
