@@ -13,7 +13,7 @@ const lowerCaseRx = /[a-z]/;
 
 export function parseBoard(board: string): ISquare[][] {
     const captures: string[] = [];
-    const rx = /\|([A-Za-z '"\:\.])/g;
+    const rx = /\|([A-Za-z '":.])/g;
     let result: RegExpExecArray | null = null;
 
     while ((result = rx.exec(board))) {

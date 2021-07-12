@@ -2,12 +2,8 @@ import * as ko from "knockout";
 import { ISquare } from "../interfaces/isquare";
 import { IMove } from "../interfaces/imove";
 import { IPlayResult } from "../interfaces/iplayresult";
-import { Letter } from "../enums/letter";
-import { Multiplier } from "../enums/multiplier";
-import { MultiplierType } from "../enums/multipliertype";
 import { getPointsFromSquare } from "./getpointsfromsquare";
 import { parseLetter } from "./parseletter";
-import { printBoard } from "./printboard";
 import { MAX_RACK_TILES } from "../constants";
 
 const lowerCaseRx = /[a-z]/;
@@ -20,7 +16,7 @@ export function playMove(move: IMove, board: ISquare[][]): IPlayResult {
     let connectsToPlayedSquare = false;
     let points = 0;
     let newlyPlayedSquares = 0;
-    let result: IPlayResult = {
+    const result: IPlayResult = {
         board: ko.toJS(board),
         words: [],
         usedLetters: [],

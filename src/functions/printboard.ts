@@ -41,7 +41,7 @@ export function printBoard(board: ISquare[][]): string {
     `;
 
     let i = 0;
-    return template.replace(/X/g, (x) => {
+    return template.replace(/X/g, () => {
         const sq = board[Math.floor(i / len)][i % len];
         i += 1;
         const letter = sq.blankLetter || sq.letter || " ";

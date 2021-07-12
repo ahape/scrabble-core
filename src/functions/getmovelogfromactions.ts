@@ -33,7 +33,7 @@ export function getMoveLogFromActions(
                     commandPart.split(" ")[0].length
                 } tiles`;
                 break;
-            case ActionType.Play:
+            case ActionType.Play: {
                 let total = 0;
                 move += `Team ${teamTurn} played `;
                 const result = playMove(parsePlayCommand(commandPart), board);
@@ -48,6 +48,7 @@ export function getMoveLogFromActions(
                     move += ` for a total of ${total}`;
                 }
                 break;
+            }
             case ActionType.EndGame:
                 move += "Game over";
                 break;

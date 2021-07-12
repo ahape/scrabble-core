@@ -2,7 +2,6 @@ import { Bag } from "../classes/bag";
 import { parseAction } from "./parseaction";
 import { parseLetter } from "./parseletter";
 import { ActionType } from "../enums/actiontype";
-import { Letter } from "../enums/letter";
 
 export function createBagFromActions(actions: string[]): Bag {
     const bag = new Bag();
@@ -11,11 +10,12 @@ export function createBagFromActions(actions: string[]): Bag {
         const [actionType, commandPart] = parseAction(raw);
 
         switch (actionType) {
-            case ActionType.Draw:
+            case ActionType.Draw: {
                 const letters = commandPart.split("").map(parseLetter);
                 bag.remove(letters);
                 break;
-            case ActionType.Swap:
+            }
+            case ActionType.Swap: {
                 // A swap command looks like: "SWAP ABC DEF".
                 // "SWAP" is the action
                 // "ABC DEF" is the command part
@@ -27,6 +27,7 @@ export function createBagFromActions(actions: string[]): Bag {
                 bag.remove(drawn);
                 bag.add(exchanged);
                 break;
+            }
             default:
                 break;
         }

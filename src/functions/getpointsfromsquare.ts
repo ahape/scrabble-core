@@ -1,6 +1,5 @@
 import { letterValueMap } from "../constants";
 import { ISquare } from "../interfaces/isquare";
-import { Letter } from "../enums/letter";
 import { MultiplierType } from "../enums/multipliertype";
 import { parseLetter } from "./parseletter";
 

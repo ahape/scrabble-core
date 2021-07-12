@@ -1,18 +1,15 @@
 import * as _ from "underscore";
 import * as ko from "knockout";
 import { ISquare } from "../interfaces/isquare";
-import { IPlayResult } from "../interfaces/iplayresult";
 import { IMove } from "../interfaces/imove";
 import { IGameState } from "../interfaces/igamestate";
 import { IGameStatus } from "../interfaces/igamestatus";
 import { Letter } from "../enums/letter";
 import { ActionType } from "../enums/actiontype";
 import { parsePlayCommand } from "../functions/parseplaycommand";
-import { createNewBoard } from "../functions/createnewboard";
 import { playMove } from "../functions/playmove";
 import { printBoard } from "../functions/printboard";
 import { parseLetter } from "../functions/parseletter";
-import { actionChangesTurn } from "../functions/actionchangesturn";
 import { getNextTurn } from "../functions/getnextturn";
 import { getTurnFromActions } from "../functions/getturnfromactions";
 import { getScoresFromActions } from "../functions/getscoresfromactions";
@@ -23,7 +20,7 @@ import { createBagFromActions } from "../functions/createbagfromactions";
 import { playCommandHasLettersFromRack } from "../functions/playcommandhaslettersfromrack";
 import { createRackFromActions } from "../functions/createrackfromactions";
 import { createRacksFromActions } from "../functions/createracksfromactions";
-import { MAX_RACK_TILES, BOARD_X_LENGTH, BOARD_Y_LENGTH } from "../constants";
+import { MAX_RACK_TILES } from "../constants";
 import { Bag } from "./bag";
 import { Rack } from "./rack";
 
@@ -140,15 +137,15 @@ export class Game {
     }
 
     private _getStatusFromActionIndex(actionIndex: number): IGameStatus {
-        var teams = this.teams;
-        var actions = this.actions.slice(0, actionIndex + 1);
-        var bag = createBagFromActions(actions);
-        var board = createBoardFromActions(actions);
-        var racks = createRacksFromActions(actions, teams);
-        var scores = getScoresFromActions(actions, teams);
-        var teamTurn = getTurnFromActions(actions, teams);
-        var moveLog = getMoveLogFromActions(actions, teams);
-        var gameOver =
+        const teams = this.teams;
+        const actions = this.actions.slice(0, actionIndex + 1);
+        const bag = createBagFromActions(actions);
+        const board = createBoardFromActions(actions);
+        const racks = createRacksFromActions(actions, teams);
+        const scores = getScoresFromActions(actions, teams);
+        const teamTurn = getTurnFromActions(actions, teams);
+        const moveLog = getMoveLogFromActions(actions, teams);
+        const gameOver =
             parseAction(this.actions[actionIndex])[0] == ActionType.EndGame;
         return {
             bag: bag.toJSON(),
@@ -256,23 +253,18 @@ export class Game {
 
         if (!isValid) return "Word doesn't use letters from rack (1)";
 
-        try {
-            const result = playMove(move, this.board());
-            const owned = rack.letters.slice();
-            const used = result.usedLetters.slice();
+        const result = playMove(move, this.board());
+        const owned = rack.letters.slice();
+        const used = result.usedLetters.slice();
 
-            let letter: Letter | undefined;
-            while ((letter = used.pop())) {
-                var i = owned.indexOf(letter);
-                if (i === -1) return "Word doesn't use letters from rack (2)";
-                owned.splice(i, 1);
-            }
-
-            return "";
-        } catch (err) {
-            throw err;
-            //return err.message;
+        let letter: Letter | undefined;
+        while ((letter = used.pop())) {
+            const i = owned.indexOf(letter);
+            if (i === -1) return "Word doesn't use letters from rack (2)";
+            owned.splice(i, 1);
         }
+
+        return "";
     }
 
     private _canGameContinue(): boolean {

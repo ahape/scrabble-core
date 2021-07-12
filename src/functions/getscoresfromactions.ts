@@ -19,7 +19,7 @@ export function getScoresFromActions(
         const [actionType, commandPart] = parseAction(raw);
 
         switch (actionType) {
-            case ActionType.Play:
+            case ActionType.Play: {
                 const result = playMove(parsePlayCommand(commandPart), board);
                 board = result.board;
                 scores[teamTurn - 1] += result.words.reduce(
@@ -27,7 +27,8 @@ export function getScoresFromActions(
                     0
                 );
                 break;
-            case ActionType.EndGame:
+            }
+            case ActionType.EndGame: {
                 const racks = createRacksFromActions(rawActions, teams);
                 const prevTeamTurn = getNextTurn(teams, teamTurn, true);
 
@@ -50,6 +51,7 @@ export function getScoresFromActions(
                     scores[prevTeamTurn - 1] += points;
                 }
                 break;
+            }
             default:
                 break;
         }

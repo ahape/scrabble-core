@@ -43,7 +43,7 @@ function checkSameRow(
     const y = parseSquareCoordinates(move[0])[1];
     const sorted = _.sortBy(move, (sq) => parseSquareCoordinates(sq)[1]);
     const first = sorted[0];
-    const last = _.last(sorted)!;
+    const last = sorted[sorted.length - 1];
     for (let x = 0; x < BOARD_X_LENGTH; x++) {
         const sq = board[y][x];
         // Does the square consist of a letter?
@@ -86,7 +86,7 @@ function checkSameCol(move: ISquare[], board: ISquare[][]): string | undefined {
     const x = parseSquareCoordinates(move[0])[0];
     const sorted = _.sortBy(move, (sq) => parseSquareCoordinates(sq)[0]);
     const first = sorted[0];
-    const last = _.last(sorted)!;
+    const last = sorted[sorted.length - 1];
     for (let y = 0; y < BOARD_Y_LENGTH; y++) {
         const sq = board[y][x];
 

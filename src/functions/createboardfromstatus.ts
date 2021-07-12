@@ -1,8 +1,9 @@
 import { Letter } from "../enums/letter";
 import { IGameStatus } from "../interfaces/igamestatus";
+import { ISquare } from "../interfaces/isquare";
 import { createNewBoard } from "./createnewboard";
 
-export function createBoardFromStatus(status: IGameStatus) {
+export function createBoardFromStatus(status: IGameStatus): ISquare[][] {
     const statusBoard = status.board;
     const newBoard = createNewBoard();
 

@@ -21,18 +21,20 @@ export function createRacksFromActions(
         const rack = racks[teamTurn - 1];
 
         switch (actionType) {
-            case ActionType.Play:
+            case ActionType.Play: {
                 const result = playMove(parsePlayCommand(commandPart), board);
                 board = result.board;
                 rack.remove(result.usedLetters);
                 break;
-            case ActionType.Swap:
+            }
+            case ActionType.Swap: {
                 const [sExchanged, sDrawn] = commandPart.split(" ");
                 const exchanged = sExchanged.split("").map(parseLetter);
                 const drawn = sDrawn.split("").map(parseLetter);
                 rack.remove(exchanged);
                 rack.add(drawn);
                 break;
+            }
             case ActionType.Draw:
                 rack.add(commandPart.split("").map(parseLetter));
                 break;

@@ -1,5 +1,3 @@
-import { Letter } from "../enums/letter";
-
 export interface IMove {
     x: number;
     y: number;
