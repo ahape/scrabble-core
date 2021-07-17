@@ -297,6 +297,8 @@ declare module "functions/createplaycommand" {
      * It is expected that the UI context would only have knowledge of the letters
      * being played, and the letters on the board.
      * From that, we have to determine what the official "move" is.
+     * @param {ISquare[]} move - ONLY consists of squares from "rack".
+     * @param {ISquare[][]} board - ONLY consists of squares from "board" (and not `move`).
      */
     export function createPlayCommand(move: ISquare[], board: ISquare[][]): string;
 }

@@ -46,6 +46,7 @@ function checkSameRow(
     const sorted = _.sortBy(move, (sq) => parseSquareCoordinates(sq)[1]);
     const first = sorted[0];
     const last = sorted[sorted.length - 1];
+
     for (let x = 0; x < BOARD_X_LENGTH; x++) {
         const sq = board[y][x];
         // Does the square consist of a letter?
