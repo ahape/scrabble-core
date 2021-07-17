@@ -136,6 +136,12 @@ export class Game {
         return createBoardFromActions(this._nonFutureActions());
     }
 
+    public canDraw(): boolean {
+        const status = this.status();
+        const rack = status.racks[status.teamTurn - 1];
+        return status.bag.length > 0 && rack.length < MAX_RACK_TILES;
+    }
+
     private _getStatusFromActionIndex(actionIndex: number): IGameStatus {
         const teams = this.teams;
         const actions = this.actions.slice(0, actionIndex + 1);
