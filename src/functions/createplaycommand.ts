@@ -8,6 +8,8 @@ import { parseSquareCoordinates } from "./parsesquarecoordinates";
  * It is expected that the UI context would only have knowledge of the letters
  * being played, and the letters on the board.
  * From that, we have to determine what the official "move" is.
+ * @param {ISquare[]} move - ONLY consists of squares from "rack".
+ * @param {ISquare[][]} board - ONLY consists of squares from "board" (and not `move`).
  */
 export function createPlayCommand(move: ISquare[], board: ISquare[][]): string {
     // First check that all of the squares from the move are in the same row or col
@@ -73,7 +75,11 @@ function checkSameRow(
     }
     // Should only be true if word ends at edge of board.
     if (passedFirst && passedLast)
-        return `${word} ${coordinateChars.charAt(startingCoord) + (y + 1)} H`;
+        if (isAmbiguous && word.length === 1) return checkSameCol(move, board);
+        else
+            return `${word} ${
+                coordinateChars.charAt(startingCoord) + (y + 1)
+            } H`;
 }
 
 function checkSameCol(move: ISquare[], board: ISquare[][]): string | undefined {
