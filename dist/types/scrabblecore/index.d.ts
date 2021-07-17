@@ -91,25 +91,6 @@ declare module "interfaces/isquare" {
         multiplierType: MultiplierType;
     }
 }
-declare module "interfaces/iplayedword" {
-    export interface IPlayedWord {
-        points: number;
-        word: string;
-    }
-}
-declare module "interfaces/iplayresult" {
-    import { IPlayedWord } from "interfaces/iplayedword";
-    import { ISquare } from "interfaces/isquare";
-    import { Letter } from "enums/letter";
-    export interface IPlayResult {
-        /** All of the words that contribute to the move's score. */
-        words: IPlayedWord[];
-        /** The new state of the board. */
-        board: ISquare[][];
-        /** Letters used from rack */
-        usedLetters: Letter[];
-    }
-}
 declare module "interfaces/imove" {
     export interface IMove {
         x: number;
@@ -157,17 +138,28 @@ declare module "functions/parseplaycommand" {
     import { IMove } from "interfaces/imove";
     export function parsePlayCommand(playCommand: string): IMove;
 }
+declare module "interfaces/iplayedword" {
+    export interface IPlayedWord {
+        points: number;
+        word: string;
+    }
+}
+declare module "interfaces/iplayresult" {
+    import { IPlayedWord } from "interfaces/iplayedword";
+    import { ISquare } from "interfaces/isquare";
+    import { Letter } from "enums/letter";
+    export interface IPlayResult {
+        /** All of the words that contribute to the move's score. */
+        words: IPlayedWord[];
+        /** The new state of the board. */
+        board: ISquare[][];
+        /** Letters used from rack */
+        usedLetters: Letter[];
+    }
+}
 declare module "functions/parseletter" {
     import { Letter } from "enums/letter";
     export function parseLetter(letter: string): Letter;
-}
-declare module "functions/parseboard" {
-    import { ISquare } from "interfaces/isquare";
-    export function parseBoard(board: string): ISquare[][];
-}
-declare module "functions/createnewboard" {
-    import { ISquare } from "interfaces/isquare";
-    export function createNewBoard(): ISquare[][];
 }
 declare module "functions/getpointsfromsquare" {
     import { ISquare } from "interfaces/isquare";
@@ -179,19 +171,15 @@ declare module "functions/getpointsfromsquare" {
      */
     export function getPointsFromSquare(sq: ISquare, multipliers: number[]): number;
 }
-declare module "functions/printboard" {
-    import { ISquare } from "interfaces/isquare";
-    export function printBoard(board: ISquare[][]): string;
-}
 declare module "functions/playmove" {
     import { ISquare } from "interfaces/isquare";
     import { IMove } from "interfaces/imove";
     import { IPlayResult } from "interfaces/iplayresult";
     export function playMove(move: IMove, board: ISquare[][]): IPlayResult;
 }
-declare module "functions/actionchangesturn" {
-    import { ActionType } from "enums/actiontype";
-    export function actionChangesTurn(actionType: ActionType): boolean;
+declare module "functions/printboard" {
+    import { ISquare } from "interfaces/isquare";
+    export function printBoard(board: ISquare[][]): string;
 }
 declare module "functions/getnextturn" {
     export function getNextTurn(teams: number, teamTurn: number, oppositeDirection: boolean): number;
@@ -200,8 +188,20 @@ declare module "functions/parseaction" {
     import { ActionType } from "enums/actiontype";
     export function parseAction(rawAction: string): [ActionType, string];
 }
+declare module "functions/actionchangesturn" {
+    import { ActionType } from "enums/actiontype";
+    export function actionChangesTurn(actionType: ActionType): boolean;
+}
 declare module "functions/getturnfromactions" {
     export function getTurnFromActions(actions: string[], teams: number): number;
+}
+declare module "functions/parseboard" {
+    import { ISquare } from "interfaces/isquare";
+    export function parseBoard(board: string): ISquare[][];
+}
+declare module "functions/createnewboard" {
+    import { ISquare } from "interfaces/isquare";
+    export function createNewBoard(): ISquare[][];
 }
 declare module "classes/rack" {
     import { Letter } from "enums/letter";
@@ -271,6 +271,7 @@ declare module "classes/game" {
         print(): void;
         load(gameJson: IGameState): void;
         board(): ISquare[][];
+        canDraw(): boolean;
         private _getStatusFromActionIndex;
         private _handleAction;
         private _nonFutureActions;
@@ -301,7 +302,8 @@ declare module "functions/createplaycommand" {
 }
 declare module "functions/createboardfromstatus" {
     import { IGameStatus } from "interfaces/igamestatus";
-    export function createBoardFromStatus(status: IGameStatus): import("scrabblecore").ISquare[][];
+    import { ISquare } from "interfaces/isquare";
+    export function createBoardFromStatus(status: IGameStatus): ISquare[][];
 }
 declare module "scrabblecore" {
     export * as constants from "constants";
