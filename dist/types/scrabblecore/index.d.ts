@@ -272,6 +272,8 @@ declare module "classes/game" {
         load(gameJson: IGameState): void;
         board(): ISquare[][];
         canDraw(): boolean;
+        canUndo(): boolean;
+        canRedo(): boolean;
         private _getStatusFromActionIndex;
         private _handleAction;
         private _nonFutureActions;

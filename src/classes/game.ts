@@ -142,6 +142,17 @@ export class Game {
         return status.bag.length > 0 && rack.length < MAX_RACK_TILES;
     }
 
+    public canUndo(): boolean {
+        return Math.max(this.actionIndex - 1, 0) < this.actionIndex;
+    }
+
+    public canRedo(): boolean {
+        return (
+            Math.min(this.actionIndex + 1, this.actions.length - 1) >
+            this.actionIndex
+        );
+    }
+
     private _getStatusFromActionIndex(actionIndex: number): IGameStatus {
         const teams = this.teams;
         const actions = this.actions.slice(0, actionIndex + 1);
@@ -167,6 +178,9 @@ export class Game {
     }
 
     private _handleAction(actionType: ActionType, actionRaw?: string): void {
+        if (actionType !== ActionType.EndGame && !this._canGameContinue())
+            return;
+
         switch (actionType) {
             case ActionType.NewGame:
             case ActionType.Draw:
@@ -248,6 +262,7 @@ export class Game {
 
     private _play(command: string): string {
         let move: IMove;
+
         try {
             move = parsePlayCommand(command);
         } catch (err) {
