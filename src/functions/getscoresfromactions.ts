@@ -30,25 +30,17 @@ export function getScoresFromActions(
             }
             case ActionType.EndGame: {
                 const racks = createRacksFromActions(rawActions, teams);
-                const prevTeamTurn = getNextTurn(teams, teamTurn, true);
 
-                // The following is debatable
-                // --------------------------
-                // It's very rare, but in the event of the previous team
-                // playing a bingo, and there being no possibility of them
-                // drawing tiles for their next turn given the needs of the
-                // other teams, then automatically award them all the
-                // remaining tiles in the bag.
-                if (commandPart) {
-                    scores[prevTeamTurn - 1] += parseInt(commandPart, 10) || 0;
-                }
+                // First empty rack gets all the other rack's points.
+                const emptyRackIndex = _.findIndex(racks, (r) => r.isEmpty());
 
-                for (let i = 0; i < teams; i++) {
-                    if (i === prevTeamTurn - 1) continue;
+                // If no empty rack, no points added/subtracted.
+                for (let i = 0; emptyRackIndex > -1 && i < teams; i++) {
+                    if (i === emptyRackIndex) continue;
 
                     const points = racks[i].totalPoints();
                     scores[i] -= points;
-                    scores[prevTeamTurn - 1] += points;
+                    scores[emptyRackIndex] += points;
                 }
                 break;
             }

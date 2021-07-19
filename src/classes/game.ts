@@ -74,6 +74,8 @@ export class Game {
 
     public skip(): void {
         this._handleAction(ActionType.Skip);
+
+        if (!this._canGameContinue()) this._handleAction(ActionType.EndGame);
     }
 
     public swap(actionRaw: string): void {
@@ -95,12 +97,7 @@ export class Game {
             }
         } else this._handleAction(ActionType.Play, actionRaw);
 
-        if (!this._canGameContinue()) {
-            this._handleAction(
-                ActionType.EndGame,
-                ActionType.EndGame + " " + this._bag().totalPoints()
-            );
-        }
+        if (!this._canGameContinue()) this._handleAction(ActionType.EndGame);
     }
 
     public undo(): void {
@@ -162,8 +159,8 @@ export class Game {
         const scores = getScoresFromActions(actions, teams);
         const teamTurn = getTurnFromActions(actions, teams);
         const moveLog = getMoveLogFromActions(actions, teams);
-        const gameOver =
-            parseAction(this.actions[actionIndex])[0] == ActionType.EndGame;
+        const gameOver = this.actions.includes(ActionType.EndGame);
+
         return {
             bag: bag.toJSON(),
             board: board.map((row) =>
@@ -289,28 +286,26 @@ export class Game {
     }
 
     private _canGameContinue(): boolean {
-        const previousTurnRackIndex =
-            getNextTurn(this.teams, this._teamTurn(), true) - 1;
-        const otherTeamsRacks = createRacksFromActions(
+        const actions = this._nonFutureActions();
+        const racks = createRacksFromActions(
             this._nonFutureActions(),
             this.teams
         );
 
-        otherTeamsRacks.splice(previousTurnRackIndex, 1);
+        let consecutiveSkips = [];
+        do {
+            let lastAction = actions.pop();
+            if (lastAction && lastAction == ActionType.Skip)
+                consecutiveSkips.push(lastAction);
+            else break;
+        } while (true);
 
-        const otherTeamsRackNeeds = otherTeamsRacks.reduce(
-            (sum, c) => sum + c.needs(),
-            0
+        // IF the bag is empty AND at least one rack is empty
+        // OR IF there have been 3 rounds of consecutive skips
+        // THEN the game cannot continue
+        return !(
+            (this._bag().isEmpty() && racks.some((r) => r.isEmpty())) ||
+            consecutiveSkips.length / this.teams >= 3
         );
-
-        if (
-            // IF the team who just went played all of their tiles
-            this._teamPreviousRack().isEmpty() &&
-            // AND the bag is empty
-            // OR the team who just went won't get a chance to draw again
-            (this._bag().isEmpty() || this._bag().count() < otherTeamsRackNeeds)
-        )
-            return false;
-        return true;
     }
 }
