@@ -175,9 +175,6 @@ export class Game {
     }
 
     private _handleAction(actionType: ActionType, actionRaw?: string): void {
-        if (actionType !== ActionType.EndGame && !this._canGameContinue())
-            return;
-
         switch (actionType) {
             case ActionType.NewGame:
             case ActionType.Draw:
@@ -185,6 +182,8 @@ export class Game {
             case ActionType.Swap:
             case ActionType.Play:
             case ActionType.EndGame:
+                if (actionType !== ActionType.EndGame && !this._canGameContinue())
+                    return;
                 // In order to overwrite any previous states (after undo)
                 this.actions.length = this.actionIndex + 1;
                 this.actions.push(actionRaw || actionType);
@@ -292,13 +291,16 @@ export class Game {
             this.teams
         );
 
-        let consecutiveSkips = [];
+        let oopsLoops = 100;
+        const consecutiveSkips = [];
         do {
-            let lastAction = actions.pop();
+            const lastAction = actions.pop();
             if (lastAction && lastAction == ActionType.Skip)
                 consecutiveSkips.push(lastAction);
             else break;
-        } while (true);
+        } while (oopsLoops--);
+
+        if (oopsLoops === 0) throw new Error("Infinite loop encountered");
 
         // IF the bag is empty AND at least one rack is empty
         // OR IF there have been 3 rounds of consecutive skips
