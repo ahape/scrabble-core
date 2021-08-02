@@ -139,6 +139,12 @@ export class Game {
         return status.bag.length > 0 && rack.length < MAX_RACK_TILES;
     }
 
+    public canSwap(): boolean {
+        const status = this.status();
+        const rack = status.racks[status.teamTurn - 1];
+        return status.bag.length > 0 && rack.length > 0;
+    }
+
     public canUndo(): boolean {
         return Math.max(this.actionIndex - 1, 0) < this.actionIndex;
     }

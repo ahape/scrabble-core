@@ -272,6 +272,7 @@ declare module "classes/game" {
         load(gameJson: IGameState): void;
         board(): ISquare[][];
         canDraw(): boolean;
+        canSwap(): boolean;
         canUndo(): boolean;
         canRedo(): boolean;
         private _getStatusFromActionIndex;
